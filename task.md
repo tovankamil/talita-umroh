@@ -84,13 +84,13 @@ VPS Ubuntu 22.04
 ---
 
 ## Phase 2: Database & Backend API (Golang)
-- `[ ]` Task 2.1: Model & Database Migration (GORM)
-  - `[ ]` Create `Users`, `AgentProfiles`, `MasterBanks` models
-  - `[ ]` Create `UmrohPackages`, `Transactions`, `Commissions` models
-  - `[ ]` Create `MarketingKits`, `Withdrawals` models
-- `[ ]` Task 2.2: Auth & JWT API
-  - `[ ]` Implement Registration (with/without Referral)
-  - `[ ]` Implement Login (JWT generation)
+- `[x]` Task 2.1: Model & Database Migration (GORM)
+  - `[x]` Create `Users`, `AgentProfiles`, `MasterBanks` models
+  - `[x]` Create `UmrohPackages`, `Transactions`, `Commissions` models
+  - `[x]` Create `MarketingKits`, `Withdrawals` models
+- `[x]` Task 2.2: Auth & JWT API
+  - `[x]` Implement Registration (with/without Referral)
+  - `[x]` Implement Login (JWT generation)
   - `[ ]` Implement Reset Password (Temporary Password logic)
 - `[ ]` Task 2.3: Commission & Transaction Logic
   - `[ ]` Create Package & Upload Payment API
@@ -101,8 +101,10 @@ VPS Ubuntu 22.04
 ## Phase 3: Frontend Web (Next.js)
 - `[ ]` Task 3.1: Public Landing Page
   - `[ ]` Build UI Layouts (referring to sulthanumroh.com)
-  - `[ ]` Integrate Registration Form
-- `[ ]` Task 3.2: Agent Dashboard
+  - `[x]` Integrate Registration Form
+- `[x]` Task 3.2: Agent Dashboard
+  - *Dummy Account: mitra@talita.com / password123*
+  - `[x]` Dashboard Layout & Overview UI
   - `[ ]` Profile & Bank Settings UI
   - `[ ]` Order & Upload Payment UI
   - `[ ]` Ledger, Withdraw & Download Center UI

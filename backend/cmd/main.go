@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	// Load .env file
+	// Load .env file dari direktori backend
 	if err := godotenv.Load(); err != nil {
 		log.Println("Warning: .env file not found, using system environment variables")
 	}
@@ -20,6 +20,9 @@ func main() {
 	// Connect to database & Redis
 	database.Connect()
 	database.ConnectRedis()
+
+	// Jalankan database migration
+	database.Migrate()
 
 	// Setup Gin
 	if os.Getenv("APP_ENV") == "production" {

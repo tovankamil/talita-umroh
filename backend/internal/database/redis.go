@@ -23,7 +23,14 @@ func ConnectRedis() {
 	defer cancel()
 
 	if err := Redis.Ping(ctx).Err(); err != nil {
-		log.Fatalf("❌ Gagal konek ke Redis: %v", err)
+		if os.Getenv("APP_ENV") == "production" {
+			log.Fatalf("❌ Gagal konek ke Redis: %v", err)
+		} else {
+			log.Printf("⚠️  Gagal konek ke Redis (development mode): %v", err)
+			log.Println("⚠️  Aplikasi berjalan TANPA cache Redis")
+			Redis = nil // Set to nil to handle missing redis gracefully
+		}
+		return
 	}
 
 	log.Println("✅ Redis terhubung")

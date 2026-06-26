@@ -6,10 +6,14 @@ import (
 	"talita-umroh-api/internal/middleware"
 )
 
+// Register mendaftarkan semua rute API
 func Register(r *gin.Engine) {
 	// Health check
 	r.GET("/health", func(c *gin.Context) {
-		c.JSON(200, gin.H{"status": "ok", "service": "talita-umroh-api"})
+		c.JSON(200, gin.H{
+			"status": "ok",
+			"message": "Talita Umroh API is running",
+		})
 	})
 
 	api := r.Group("/api/v1")
@@ -23,13 +27,16 @@ func Register(r *gin.Engine) {
 			auth.POST("/login", handlers.Login)
 			auth.POST("/forgot-password", handlers.ForgotPassword)
 			auth.POST("/reset-password", handlers.ResetPassword)
+			
+			// Profile (Requires Auth)
+			auth.GET("/me", middleware.AuthMiddleware(), handlers.GetMe)
 		}
 
 		// ─────────────────────────────────────────
-		// Agent routes (login required)
+		// Agent routes (login required, role=agent)
 		// ─────────────────────────────────────────
 		agent := api.Group("/agent")
-		agent.Use(middleware.AuthMiddleware())
+		agent.Use(middleware.AuthMiddleware(), middleware.RoleMiddleware("agent"))
 		{
 			// Profile
 			agent.GET("/profile", handlers.GetProfile)
@@ -63,7 +70,7 @@ func Register(r *gin.Engine) {
 		// Admin routes (admin only)
 		// ─────────────────────────────────────────
 		admin := api.Group("/admin")
-		admin.Use(middleware.AuthMiddleware(), middleware.AdminOnly())
+		admin.Use(middleware.AuthMiddleware(), middleware.RoleMiddleware("admin"))
 		{
 			// Agents management
 			admin.GET("/agents", handlers.ListAgents)

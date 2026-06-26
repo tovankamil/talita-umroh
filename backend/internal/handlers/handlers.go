@@ -5,8 +5,6 @@ import "github.com/gin-gonic/gin"
 // Placeholder handlers — akan diimplementasi di Task 2.2
 // File ini hanya agar proyek bisa di-compile sebelum Phase 2
 
-func Register(c *gin.Context)         { c.JSON(501, gin.H{"message": "not implemented"}) }
-func Login(c *gin.Context)            { c.JSON(501, gin.H{"message": "not implemented"}) }
 func ForgotPassword(c *gin.Context)   { c.JSON(501, gin.H{"message": "not implemented"}) }
 func ResetPassword(c *gin.Context)    { c.JSON(501, gin.H{"message": "not implemented"}) }
 
