@@ -18,8 +18,8 @@
 - `[x]` Setup GitHub Actions CI/CD:
   - `[x]` Workflow: `lint & test` on pull request → `.github/workflows/ci.yml`
   - `[x]` Workflow: `build & deploy` on push to `main` → `.github/workflows/deploy.yml`
-  - `[ ]` Store secrets di GitHub Settings → `VPS_HOST`, `VPS_USER`, `SSH_PRIVATE_KEY`, `DOCKER_USERNAME`, `DOCKER_PASSWORD`
-- `[ ]` Protect branch `main` di GitHub Settings → Branch protection rules
+  - `[x]` Store secrets di GitHub Settings → `VPS_HOST`, `VPS_USER`, `SSH_PRIVATE_KEY`, `DOCKER_USERNAME`, `DOCKER_PASSWORD` ✅
+- `[x]` Protect branch `main` di GitHub Settings → Branch protection rules
 
 ---
 

@@ -22,8 +22,8 @@ set -e
 # ──────────────────────────────────────────
 # CONFIGURATION — Edit sesuai data Anda
 # ──────────────────────────────────────────
-VPS_IP="YOUR_VPS_IP"              # Contoh: 103.123.45.67
-VPS_USER="ubuntu"                  # User default Ubuntu VPS
+VPS_IP="103.23.198.98"              # Contoh: 103.123.45.67
+VPS_USER="tovan"                  # User default Ubuntu VPS
 SSH_KEY_NAME="talita-umroh-deploy" # Nama file SSH key
 DOCKER_USERNAME="your_dockerhub"   # Username Docker Hub
 # ──────────────────────────────────────────
@@ -84,12 +84,20 @@ curl -fsSL https://get.docker.com | sudo sh
 sudo systemctl enable docker
 sudo systemctl start docker
 sudo usermod -aG docker $USER
+# Apply docker group tanpa re-login
+newgrp docker << 'DOCKERGROUP'
+echo "   Docker group aktif"
+DOCKERGROUP
 
 echo "→ Install Docker Compose..."
 sudo mkdir -p /usr/local/lib/docker/cli-plugins
 sudo curl -SL "https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64" \
   -o /usr/local/lib/docker/cli-plugins/docker-compose
 sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
+
+# Verifikasi Docker
+docker --version
+docker compose version
 
 echo "→ Install Nginx & Certbot..."
 sudo apt-get install -y -qq nginx certbot python3-certbot-nginx
@@ -99,10 +107,15 @@ echo "→ Buat direktori project..."
 sudo mkdir -p /opt/talita-umroh
 sudo chown $USER:$USER /opt/talita-umroh
 
-echo "→ Disable root SSH login..."
+echo "→ Hardening SSH config..."
 sudo sed -i 's/^PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
-sudo sed -i 's/^#PermitRootLogin/PermitRootLogin no/' /etc/ssh/sshd_config
-sudo systemctl reload sshd
+sudo sed -i 's/^#PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
+# Ubuntu 22.04 pakai 'ssh', bukan 'sshd'
+if sudo systemctl is-active --quiet ssh; then
+  sudo systemctl reload ssh
+elif sudo systemctl is-active --quiet sshd; then
+  sudo systemctl reload sshd
+fi
 
 echo "✅ Setup VPS selesai!"
 REMOTE_SCRIPT
