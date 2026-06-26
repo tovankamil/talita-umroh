@@ -3,23 +3,23 @@
 
 ## Phase 1: Setup & Environment
 
-### 🐙 Task 1.1: Setup GitHub Repository
-- `[ ]` Buat repository GitHub & push kode (lakukan manual)
+### 🐙 Task 1.1: Setup GitHub Repository ✅
+- `[x]` Buat repository & push kode ke GitHub → https://github.com/tovankamil/talita-umroh
 - `[x]` Inisialisasi repo dengan struktur monorepo:
   - `[x]` `/backend` — Golang API
   - `[x]` `/frontend` — Next.js App
   - `[x]` `/nginx` — Reverse proxy config (placeholder)
   - `[x]` `/scripts` — Deploy & migration scripts
 - `[x]` Setup `.gitignore` (Go, Node, `.env`)
-- `[x]` Buat branch strategy (terdokumentasi di README.md):
-  - `main` → Production
-  - `develop` → Staging/Dev
-  - `feature/*` → Fitur baru
+- `[x]` Buat branch strategy:
+  - `[x]` `main` → Production (sudah di-push)
+  - `[x]` `develop` → Staging/Dev (sudah di-push)
+  - `feature/*` → Fitur baru (dibuat saat development)
 - `[x]` Setup GitHub Actions CI/CD:
   - `[x]` Workflow: `lint & test` on pull request → `.github/workflows/ci.yml`
   - `[x]` Workflow: `build & deploy` on push to `main` → `.github/workflows/deploy.yml`
-  - `[ ]` Store secrets di GitHub: `VPS_HOST`, `VPS_USER`, `SSH_PRIVATE_KEY`, `DOCKER_USERNAME`, `DOCKER_PASSWORD`
-- `[ ]` Protect branch `main` di GitHub Settings (lakukan manual)
+  - `[ ]` Store secrets di GitHub Settings → `VPS_HOST`, `VPS_USER`, `SSH_PRIVATE_KEY`, `DOCKER_USERNAME`, `DOCKER_PASSWORD`
+- `[ ]` Protect branch `main` di GitHub Settings → Branch protection rules
 
 ---
 
@@ -62,20 +62,24 @@ VPS Ubuntu 22.04
 
 ---
 
-### ⚙️ Task 1.3: Setup Struktur Proyek (Backend & Frontend)
+### ⚙️ Task 1.3: Setup Struktur Proyek (Backend & Frontend) ✅
 - `[x]` Initialize Golang project (Gin & GORM) di folder `/backend`
   - `[x]` Install dependencies: Gin, GORM, JWT, Redis, Cron, godotenv
   - `[x]` Buat entry point `cmd/main.go`
-- `[/]` Initialize Next.js project (React & Tailwind) di folder `/frontend`
-  - `[x]` Next.js 16 + React 19 + TypeScript + Tailwind 4 sudah ter-setup
+  - `[x]` Buat struktur internal: `database/`, `middleware/`, `handlers/`, `routes/`
+  - `[x]` Verifikasi: `go build ./...` berhasil ✅
+- `[x]` Initialize Next.js project (React & Tailwind) di folder `/frontend`
+  - `[x]` Next.js 16 + React 19 + TypeScript + Tailwind 4
+  - `[x]` Enable `output: standalone` di `next.config.ts` (untuk Docker)
+- `[x]` Buat `.env.example` template untuk semua service
 
 ---
 
-### 🐳 Task 1.4: Setup Docker Environment
-- `[ ]` Create `docker-compose.yml` (PostgreSQL, Redis, Golang, Next.js)
-- `[ ]` Create `Dockerfile` untuk `/backend`
-- `[ ]` Create `Dockerfile` untuk `/frontend`
-- `[ ]` Create `nginx/nginx.conf` untuk reverse proxy
+### 🐳 Task 1.4: Setup Docker Environment ✅
+- `[x]` Create `docker-compose.yml` (PostgreSQL 15, Redis 7, Golang API, Next.js, Nginx)
+- `[x]` Create `Dockerfile` untuk `/backend` (multi-stage: builder → alpine runner)
+- `[x]` Create `Dockerfile` untuk `/frontend` (multi-stage: deps → builder → runner)
+- `[x]` Create `nginx/nginx.conf` (reverse proxy + SSL + gzip + static caching)
 
 ---
 

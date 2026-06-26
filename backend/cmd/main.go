@@ -13,12 +13,13 @@ import (
 
 func main() {
 	// Load .env file
-	if err := godotenv.Load("../.env"); err != nil {
+	if err := godotenv.Load(); err != nil {
 		log.Println("Warning: .env file not found, using system environment variables")
 	}
 
-	// Connect to database
+	// Connect to database & Redis
 	database.Connect()
+	database.ConnectRedis()
 
 	// Setup Gin
 	if os.Getenv("APP_ENV") == "production" {
