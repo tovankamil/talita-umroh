@@ -8,7 +8,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"talita-umroh-api/internal/database"
+	"talita-umroh-api/internal/handlers"
+	"talita-umroh-api/internal/repositories"
 	"talita-umroh-api/internal/routes"
+	"talita-umroh-api/internal/services"
 )
 
 func main() {
@@ -23,6 +26,11 @@ func main() {
 
 	// Jalankan database migration
 	database.Migrate()
+
+	// Initialize Dependencies (Clean Architecture)
+	userRepo := repositories.NewUserRepository(database.DB)
+	authService := services.NewAuthService(userRepo)
+	authHandler := handlers.NewAuthHandler(authService)
 
 	// Setup Gin
 	if os.Getenv("APP_ENV") == "production" {
@@ -40,7 +48,7 @@ func main() {
 	}))
 
 	// Register all routes
-	routes.Register(r)
+	routes.Register(r, authHandler)
 
 	port := os.Getenv("APP_PORT")
 	if port == "" {

@@ -35,7 +35,7 @@ export default function RegisterPage() {
         referral_code: referralCode || undefined
       });
       
-      const { token, user } = response.data;
+      const { token, user } = response.data.data || response.data;
       
       // Auto login after successful registration
       login(token, user);

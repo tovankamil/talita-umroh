@@ -104,14 +104,14 @@ VPS Ubuntu 22.04
   - `[x]` Integrate Registration Form
 - `[x]` Task 3.2: Agent Dashboard
   - *Dummy Account: mitra@talita.com / password123*
+  - *QA Test Account: qa@talita.com / qa123456*
   - `[x]` Dashboard Layout & Overview UI
-  - `[ ]` Profile & Bank Settings UI
-  - `[ ]` Order & Upload Payment UI
-  - `[ ]` Ledger, Withdraw & Download Center UI
+  - `[x]` Profile & Bank Settings UI
+  - `[x]` Order & Upload Payment UI
+  - `[x]` Ledger, Withdraw & Download Center UI
 - `[ ]` Task 3.3: Admin Dashboard
   - `[ ]` Payment Verification & Withdraw Approval UI
   - `[ ]` KPI Dashboard UI
-
 ## Phase 4: Integrations & Scheduler
 - `[ ]` Task 4.1: WA Notifikasi
   - `[ ]` Integrate WA Gateway API Client (Golang)

@@ -7,7 +7,7 @@ import (
 )
 
 // Register mendaftarkan semua rute API
-func Register(r *gin.Engine) {
+func Register(r *gin.Engine, authHandler *handlers.AuthHandler) {
 	// Health check
 	r.GET("/health", func(c *gin.Context) {
 		c.JSON(200, gin.H{
@@ -23,13 +23,14 @@ func Register(r *gin.Engine) {
 		// ─────────────────────────────────────────
 		auth := api.Group("/auth")
 		{
-			auth.POST("/register", handlers.Register)
-			auth.POST("/login", handlers.Login)
+			auth.POST("/register", authHandler.Register)
+			auth.POST("/login", authHandler.Login)
+			// TODO: Update these to use handler structs once implemented
 			auth.POST("/forgot-password", handlers.ForgotPassword)
 			auth.POST("/reset-password", handlers.ResetPassword)
 			
 			// Profile (Requires Auth)
-			auth.GET("/me", middleware.AuthMiddleware(), handlers.GetMe)
+			auth.GET("/me", middleware.AuthMiddleware(), authHandler.GetMe)
 		}
 
 		// ─────────────────────────────────────────

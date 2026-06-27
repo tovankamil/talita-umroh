@@ -4,11 +4,19 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"golang.org/x/crypto/bcrypt"
-	"talita-umroh-api/internal/database"
-	"talita-umroh-api/internal/models"
-	"talita-umroh-api/internal/utils"
+	"talita-umroh-api/internal/helpers"
+	"talita-umroh-api/internal/services"
 )
+
+// AuthHandler menangani request terkait autentikasi
+type AuthHandler struct {
+	authService services.AuthService
+}
+
+// NewAuthHandler adalah constructor untuk AuthHandler
+func NewAuthHandler(authService services.AuthService) *AuthHandler {
+	return &AuthHandler{authService: authService}
+}
 
 type RegisterRequest struct {
 	Name         string `json:"name" binding:"required"`
@@ -24,66 +32,25 @@ type LoginRequest struct {
 }
 
 // Register untuk agen baru
-func Register(c *gin.Context) {
+func (h *AuthHandler) Register(c *gin.Context) {
 	var req RegisterRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		helpers.ErrorResponse(c, http.StatusBadRequest, err.Error())
 		return
 	}
 
-	// Cek email/phone sudah terdaftar
-	var existingUser models.User
-	if err := database.DB.Where("email = ? OR phone = ?", req.Email, req.Phone).First(&existingUser).Error; err == nil {
-		c.JSON(http.StatusConflict, gin.H{"error": "Email or phone already registered"})
-		return
-	}
-
-	// Hash password
-	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(req.Password), bcrypt.DefaultCost)
+	user, token, err := h.authService.Register(req.Name, req.Phone, req.Email, req.Password, req.ReferralCode)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to hash password"})
-		return
-	}
-
-	// Handle Referral Code if provided
-	var referredByID *uint
-	if req.ReferralCode != "" {
-		var referrer models.User
-		if err := database.DB.Where("referral_code = ?", req.ReferralCode).First(&referrer).Error; err == nil {
-			referredByID = &referrer.ID
+		if err.Error() == "email or phone already registered" {
+			helpers.ErrorResponse(c, http.StatusConflict, err.Error())
+		} else {
+			helpers.ErrorResponse(c, http.StatusInternalServerError, err.Error())
 		}
-	}
-
-	user := models.User{
-		Name:         req.Name,
-		Email:        req.Email,
-		Phone:        req.Phone,
-		Password:     string(hashedPassword),
-		Role:         models.RoleAgent,
-		ReferredByID: referredByID,
-	}
-
-	if err := database.DB.Create(&user).Error; err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create user"})
 		return
 	}
 
-	// Buatkan AgentProfile kosong otomatis
-	agentProfile := models.AgentProfile{
-		UserID: user.ID,
-	}
-	database.DB.Create(&agentProfile)
-
-	// Buat JWT Token
-	token, err := utils.GenerateJWT(user.ID, user.Role)
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate token"})
-		return
-	}
-
-	c.JSON(http.StatusCreated, gin.H{
-		"message": "Registration successful",
-		"token":   token,
+	helpers.SuccessResponse(c, http.StatusCreated, "Registration successful", gin.H{
+		"token": token,
 		"user": gin.H{
 			"id":    user.ID,
 			"name":  user.Name,
@@ -94,33 +61,21 @@ func Register(c *gin.Context) {
 }
 
 // Login authentication
-func Login(c *gin.Context) {
+func (h *AuthHandler) Login(c *gin.Context) {
 	var req LoginRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		helpers.ErrorResponse(c, http.StatusBadRequest, err.Error())
 		return
 	}
 
-	var user models.User
-	if err := database.DB.Where("email = ?", req.Email).First(&user).Error; err != nil {
-		c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid email or password"})
-		return
-	}
-
-	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.Password)); err != nil {
-		c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid email or password"})
-		return
-	}
-
-	token, err := utils.GenerateJWT(user.ID, user.Role)
+	user, token, err := h.authService.Login(req.Email, req.Password)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate token"})
+		helpers.ErrorResponse(c, http.StatusUnauthorized, err.Error())
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{
-		"message": "Login successful",
-		"token":   token,
+	helpers.SuccessResponse(c, http.StatusOK, "Login successful", gin.H{
+		"token": token,
 		"user": gin.H{
 			"id":    user.ID,
 			"name":  user.Name,
@@ -131,20 +86,32 @@ func Login(c *gin.Context) {
 }
 
 // GetMe mengambil data user yang sedang login
-func GetMe(c *gin.Context) {
+func (h *AuthHandler) GetMe(c *gin.Context) {
 	userID, exists := c.Get("user_id")
 	if !exists {
-		c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
+		helpers.ErrorResponse(c, http.StatusUnauthorized, "Unauthorized")
 		return
 	}
 
-	var user models.User
-	if err := database.DB.Preload("AgentProfile").First(&user, userID).Error; err != nil {
-		c.JSON(http.StatusNotFound, gin.H{"error": "User not found"})
+	// Cast ke uint
+	uid, ok := userID.(float64) // JWT claims usually parse numbers as float64
+	if !ok {
+		// handle if user_id is passed as uint or something else
+		if v, ok := userID.(uint); ok {
+			uid = float64(v)
+		} else {
+			helpers.ErrorResponse(c, http.StatusInternalServerError, "Invalid token claims")
+			return
+		}
+	}
+
+	user, err := h.authService.GetMe(uint(uid))
+	if err != nil {
+		helpers.ErrorResponse(c, http.StatusNotFound, err.Error())
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{
+	helpers.SuccessResponse(c, http.StatusOK, "User retrieved successfully", gin.H{
 		"id":            user.ID,
 		"name":          user.Name,
 		"email":         user.Email,

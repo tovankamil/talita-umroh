@@ -1,0 +1,887 @@
+<html class="dark" lang="id"><head></head><body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Talita Umroh - Perjalanan Ibadah yang Amanah dan Terpercaya</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    keyframes: {
+                        'fade-in-up': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fade-in-up 0.6s ease-out forwards'
+                    },
+                    "colors": {
+                            "outline": "#99907c",
+                            "secondary-fixed": "#e4e1e6",
+                            "tertiary-fixed": "#e1e3e4",
+                            "on-surface-variant": "#d0c5af",
+                            "on-secondary-fixed": "#1b1b1e",
+                            "surface-dim": "#131313",
+                            "on-secondary-fixed-variant": "#47464a",
+                            "on-error": "#690005",
+                            "surface-tint": "#e9c349",
+                            "surface-container-low": "#1b1b1b",
+                            "inverse-surface": "#e2e2e2",
+                            "inverse-on-surface": "#303030",
+                            "tertiary": "#cdcecf",
+                            "background": "#131313",
+                            "on-tertiary-fixed": "#191c1d",
+                            "on-tertiary": "#2e3132",
+                            "tertiary-fixed-dim": "#c5c7c8",
+                            "surface-bright": "#393939",
+                            "surface-variant": "#353535",
+                            "on-background": "#e2e2e2",
+                            "on-tertiary-container": "#434546",
+                            "secondary-fixed-dim": "#c8c5ca",
+                            "on-primary-fixed": "#241a00",
+                            "error-container": "#93000a",
+                            "surface": "#131313",
+                            "on-primary-container": "#554300",
+                            "on-surface": "#e2e2e2",
+                            "primary": "#f2ca50",
+                            "surface-container-high": "#2a2a2a",
+                            "on-error-container": "#ffdad6",
+                            "surface-container-lowest": "#0e0e0e",
+                            "surface-container": "#1f1f1f",
+                            "on-secondary-container": "#b6b4b8",
+                            "primary-fixed": "#ffe088",
+                            "on-primary": "#3c2f00",
+                            "primary-container": "#d4af37",
+                            "secondary": "#c8c5ca",
+                            "outline-variant": "#4d4635",
+                            "surface-container-highest": "#353535",
+                            "primary-fixed-dim": "#e9c349",
+                            "inverse-primary": "#735c00",
+                            "on-secondary": "#303033",
+                            "on-tertiary-fixed-variant": "#454748",
+                            "error": "#ffb4ab",
+                            "tertiary-container": "#b1b3b4",
+                            "secondary-container": "#47464a",
+                            "on-primary-fixed-variant": "#574500"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                    },
+                    "spacing": {
+                            "margin-desktop": "48px",
+                            "section-gap": "80px",
+                            "container-max": "1280px",
+                            "margin-mobile": "16px",
+                            "gutter": "24px"
+                    },
+                    "fontFamily": {
+                            "headline-lg-mobile": [
+                                    "Playfair Display"
+                            ],
+                            "label-sm": [
+                                    "Plus Jakarta Sans"
+                            ],
+                            "body-md": [
+                                    "Plus Jakarta Sans"
+                            ],
+                            "body-lg": [
+                                    "Plus Jakarta Sans"
+                            ],
+                            "display-lg": [
+                                    "Playfair Display"
+                            ],
+                            "headline-lg": [
+                                    "Playfair Display"
+                            ],
+                            "headline-md": [
+                                    "Playfair Display"
+                            ],
+                            "label-md": [
+                                    "Plus Jakarta Sans"
+                            ]
+                    },
+                    "fontSize": {
+                            "headline-lg-mobile": [
+                                    "32px",
+                                    {
+                                            "lineHeight": "40px",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "label-sm": [
+                                    "12px",
+                                    {
+                                            "lineHeight": "16px",
+                                            "fontWeight": "500"
+                                    }
+                            ],
+                            "body-md": [
+                                    "16px",
+                                    {
+                                            "lineHeight": "24px",
+                                            "fontWeight": "400"
+                                    }
+                            ],
+                            "body-lg": [
+                                    "18px",
+                                    {
+                                            "lineHeight": "28px",
+                                            "fontWeight": "400"
+                                    }
+                            ],
+                            "display-lg": [
+                                    "64px",
+                                    {
+                                            "lineHeight": "72px",
+                                            "letterSpacing": "-0.02em",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "headline-lg": [
+                                    "40px",
+                                    {
+                                            "lineHeight": "48px",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "headline-md": [
+                                    "24px",
+                                    {
+                                            "lineHeight": "32px",
+                                            "fontWeight": "600"
+                                    }
+                            ],
+                            "label-md": [
+                                    "14px",
+                                    {
+                                            "lineHeight": "20px",
+                                            "letterSpacing": "0.05em",
+                                            "fontWeight": "600"
+                                    }
+                            ]
+                    }
+            },
+                },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .glass-panel {
+            background: rgba(19, 19, 19, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .gold-glow:hover {
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .js-reveal-card {
+                opacity: 0;
+            }
+        }
+    </style>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-primary/10 shadow-[0_4px_30px_rgba(212,175,55,0.05)]">
+<div class="flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
+<!-- Brand Logo -->
+<a class="font-display-lg text-headline-md text-primary tracking-tight" href="#" style="font-size: 24px; line-height: 32px;">
+                Talita Umroh
+            </a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md scale-95 duration-150 ease-in-out" href="#">Beranda</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-300 font-label-md text-label-md hover:bg-primary/10 hover:text-primary-fixed px-2 py-1 rounded" href="#">Paket Umrah</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-300 font-label-md text-label-md hover:bg-primary/10 hover:text-primary-fixed px-2 py-1 rounded" href="#">Haji Plus</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-300 font-label-md text-label-md hover:bg-primary/10 hover:text-primary-fixed px-2 py-1 rounded" href="#">Tentang Kami</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-300 font-label-md text-label-md hover:bg-primary/10 hover:text-primary-fixed px-2 py-1 rounded" href="#">Testimoni</a>
+</nav>
+<!-- CTA & Mobile Menu Toggle -->
+<div class="flex items-center gap-4">
+<a class="hidden md:inline-flex items-center justify-center bg-primary-container text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-DEFAULT hover:bg-primary-fixed-dim transition-all duration-300 gold-glow" href="#">
+                    Konsultasi Gratis
+                </a>
+<button class="md:hidden text-on-surface p-2 focus:outline-none">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center pt-20 pb-section-gap px-margin-mobile md:px-margin-desktop overflow-hidden">
+<!-- Background Image with Gradient -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A breathtaking night view of the Kaaba in Mecca, illuminated by glowing golden lights against a deep, dark starry night sky. The scene exudes divine elegance, spiritual serenity, and a premium modern luxury aesthetic, with a soft luminous layered glow effect. Minimalist and high-contrast, focusing on the majestic architecture." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQLnvH0b0S5quDZP-7__qU_y1I8L62HYNd9hMi5_tr1Bv1qQJWhGDGN_-7Kzob9FR0DtBe4f8zB8sr0JgAuIA1haFKgdlPc-zWqK8X9uUJDKrlblNvJ-rNOxz8ByiIzUM-pa0isl8-PPA4XB8WHYj4eYfhrmg0J7QO_PYr85cYY8SxaoL9oKDr3hUqZ8g215q5U79zWvF2JnuOle9lSOVhjRuH-AO3rywF7RUdULW0e2lQdS5URw2Lk8RuZAkhvZskIEHYnUbgYmY')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto flex flex-col items-center text-center">
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface mb-4 max-w-4xl drop-shadow-lg">
+                    Perjalanan Suci yang Tenang dan Penuh Makna
+                </h1>
+<h2 class="font-headline-md text-headline-md text-primary-container mb-12 drop-shadow-md">
+                    Bersama Talita Umroh
+                </h2>
+<!-- Glassmorphism Search Box -->
+<div class="glass-panel w-full max-w-3xl rounded-xl p-6 md:p-8 flex flex-col md:flex-row gap-4 items-end shadow-2xl">
+<div class="w-full md:w-1/3 flex flex-col items-start gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider" for="month">Bulan Keberangkatan</label>
+<div class="relative w-full">
+<select class="w-full bg-surface-dim border border-outline-variant text-on-surface font-body-md text-body-md rounded-lg p-3 appearance-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors" id="month">
+<option>Pilih Bulan</option>
+<option>September 2024</option>
+<option>Oktober 2024</option>
+<option>November 2024</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="w-full md:w-1/3 flex flex-col items-start gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider" for="package-type">Jenis Paket</label>
+<div class="relative w-full">
+<select class="w-full bg-surface-dim border border-outline-variant text-on-surface font-body-md text-body-md rounded-lg p-3 appearance-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors" id="package-type">
+<option>Semua Paket</option>
+<option>Umroh VIP</option>
+<option>Umroh Plus Turki</option>
+<option>Umroh Ekonomi</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<button class="w-full md:w-1/3 bg-primary-container text-on-primary font-label-md text-label-md py-3 px-6 rounded-lg hover:bg-primary-fixed-dim transition-all duration-300 gold-glow flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+                        Cari Paket
+                    </button>
+</div>
+</div>
+</section>
+<!-- Trust Bar -->
+<section class="bg-surface-container-low py-8 border-y border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-6">Mitra Resmi &amp; Maskapai Terpercaya</p>
+<div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60">
+<img class="h-8 md:h-12 object-contain filter grayscale hover:grayscale-0 hover:sepia transition-all duration-300" data-alt="A minimalist, monochromatic high-end vector logo of a premium airline, designed in elegant muted gold tones against a dark background, fitting a luxury travel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANw919Umt-onUM3NBSoQ_x7kJIEwa08hf0tJTZ_yGBQD70h0IpKVpR5OzU4_govx9iKYSiamLoWbBT23ErnkIGtsgvGV2Tin50MaFupjvE661YX5GIUcS0CuIiWpmO7Yuo5ontBMJW0XIh_q6-gDAssfsk9OtiU1CZXBI1TGRcHYfSf7tj2oHG32Y9ByzC966dYhYbaC3xK4k17bNxSlaQk0x4P3tR7zOM-Y-yXnOs2FoIdm2tohmNHzNAps-MwZ0Thh2LSteH6cA"/>
+<img class="h-8 md:h-12 object-contain filter grayscale hover:grayscale-0 hover:sepia transition-all duration-300" data-alt="A sophisticated, high-contrast monochrome vector logo of a government tourism board or ministry, rendered in subtle dark gold lines on a deep black background, conveying absolute reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUg-M-BzxKSmT8FYEIPdzkjVCzZEFQ4RUnNvCoq27CrNb8qIvCD5DhbRJ4caqDMx_BbAS9KaO2zbCiBA_PybUh53uvcRVZ4x-53zg172ShHEp9zDFgxWuwMLBLVBDQAwxwgDIQXeE5vGcQeXb4NjFdUSLpTQZ66dq0HxkZo5eBdvVHSeoqgCUYrgihuMwHlqYbOXYBGaXaYZqfKDTYXRe_Ua7IxrbXG9Y6Bhn3Il1YBhY9F5ga8tD2mv600tyAHEE6ZbjVhJ51n38"/>
+<img class="h-8 md:h-12 object-contain filter grayscale hover:grayscale-0 hover:sepia transition-all duration-300" data-alt="A sleek, modern luxury hotel chain vector logo placeholder, featuring thin, elegant lines in a muted gold color over a rich, deep zinc-900 background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAndY_HPbUgiasDbIGf91kiOWaVbuerGOeDi3qG2T1arLN4wLGjGRomapp21yVzW2KursRmOftu43rszyrpW2bUk9f9X2LjmsirRHsL0Xe9x3Wcr_8lOoQn_17sCGl_0-xLoGOrHMLL_pBNugGkoi8x2pE1xRiGRgiNSGjEX73Q5zi6sqOeicusq8s6Wfllw6hMXnPscuiuQuLwWvp07RZLYlVl8JZudAdcgvFz2ETBcMjSWau8qwLkJ4_6pn-N56KBsp28eI3pofY"/>
+<img class="h-8 md:h-12 object-contain filter grayscale hover:grayscale-0 hover:sepia transition-all duration-300" data-alt="An elegant, abstract geometric vector logo representing a premium international airline, stylized in monochromatic gold hues against a stark black background, emphasizing trustworthy luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSQ5obmxCQm51CY-jIdNTFWzY2wnWz1SpZZGN1ZatU1eyDVAwbFqp9hbKVa-zBBr5H_M48h88ImeL4gNeOwoQ8ZZ3-32hg_0AQ71Rqylo8Nq5LA59LSBYRDtoT9TmtWXureYiG130TrXorUZA4IJfXcmFLPu8CDDlhy_xKPHkIlBHGqck4q1_jowVF-YCcekb6O0z4wmAWSm8ooNnAXpFtdhKymG0vUCOBJEjwzUlVeLSxXDxnlidDh8DwAnU_wSxGUMD4mAdNpUw"/>
+<img class="h-8 md:h-12 object-contain filter grayscale hover:grayscale-0 hover:sepia transition-all duration-300" data-alt="A refined, minimalist vector crest logo of an official travel certification body, outlined in subtle glowing gold on a deep dark surface container low background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_QCiTjhPuBeQlJgY4nVFx3IMlgjCKp-H1-kNZx1sk-yxbEEdOW-FX4bLKaKvQ-CDYWa4Ek0Cr2rGUUU0xplxi5Hn8PnDS0ECHBL4lWhd1VeqOmJemhSVkE8B4FpQoKxTvKNA3LwGs7iELukghNNOqv14dNn79elnF9CTErbNK1TgoZ3x0iG71lpRetJ7tTK-PJcvj6hXt2YwAjVXuz89oFP9Y_n5IUzttWvUwTBvmLaso9AR7Rdq4ariGyVt8hYp0UY3bzaoogjc"/>
+</div>
+</div>
+</section>
+<!-- Package Cards -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-background text-on-surface" id="paket-umrah">
+<div class="max-w-container-max mx-auto">
+<!-- BEGIN: Section Header -->
+<div class="text-center mb-16 flex flex-col items-center">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary-container mb-6 relative inline-block">
+        Pilihan Paket Umrah
+      </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl mx-auto leading-relaxed">
+        Berikut adalah daftar produk &amp; layanan yang kami sediakan untuk para kaum muslimin diseluruh Indonesia khususnya jamaah haji &amp; umrah
+      </p>
+</div>
+<!-- END: Section Header -->
+<!-- BEGIN: Packages Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- BEGIN: Card 1 (SOLD) -->
+<article class="bg-surface-container-low rounded-xl overflow-hidden shadow-lg border border-outline-variant flex flex-col relative group transition-transform duration-300 hover:-translate-y-2">
+<!-- SOLD Overlay -->
+<div class="absolute inset-0 z-10 bg-black/60 flex items-center justify-center">
+<span class="text-white font-headline-lg text-[40px] font-bold tracking-wider drop-shadow-md">SOLD</span>
+</div>
+<!-- Card Image Placeholder -->
+<div class="h-48 bg-surface-bright relative overflow-hidden">
+<img alt="Umroh Bronze Package Cover" class="w-full h-full object-cover opacity-50 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+</div>
+<!-- Card Content -->
+<div class="p-6 flex-1 flex flex-col relative z-0">
+<h3 class="text-primary-container font-headline-md text-[18px] font-bold mb-4 border-b border-outline-variant pb-2">02 JULI 2026 | BRONZE</h3>
+<ul class="space-y-3 font-body-md text-[14px] text-on-surface-variant mb-6 flex-1">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="calendar_today">calendar_today</span>
+<span>02 Juli 2026</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="hotel">hotel</span>
+<span>Al Shohada Hotel (Makkah)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="hotel">hotel</span>
+<span>Concorde Dar Al Khair Hotel (Madinah)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="flight">flight</span>
+<span>Garuda Indonesia</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="location_on">location_on</span>
+<span>Soekarno-Hatta International Airport (CGK)</span>
+</li>
+</ul>
+<div class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<span class="font-headline-md text-[16px] font-bold">Sisa Seat : 0</span>
+</div>
+<div class="w-full bg-surface-bright rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<div class="mb-6">
+<span class="font-body-md text-[14px] text-on-surface-variant block mb-1">Harga mulai :</span>
+<span class="font-headline-md text-[24px] font-bold text-primary-container">IDR 0,00</span>
+</div>
+<button class="w-full py-3 bg-primary-container/20 text-primary-container font-label-md rounded-md border border-primary-container/50 cursor-not-allowed opacity-50 transition-colors" disabled="">
+            DETAIL PAKET
+          </button>
+</div>
+</article>
+<!-- END: Card 1 -->
+<!-- BEGIN: Card 2 -->
+<article class="bg-surface-container-low rounded-xl overflow-hidden shadow-lg border border-outline-variant flex flex-col group transition-transform duration-300 hover:-translate-y-2 hover:border-primary-container/50">
+<!-- Card Image Placeholder -->
+<div class="h-48 bg-surface-bright relative overflow-hidden">
+<img alt="Umroh Gold Package Cover" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq0XKc3oe16S73DlMXVsNitwU1gjcVaOmZb8MMsOqwSAxMrn5YtE0uvpvzy4BPd1_xEToeWWr75U7iK93LwV4ic_1OX78oB6VwLymwJt8GCPAxSkqgSXyoblRISyXIWJ3xDx_xeJVAnDte_zWPP368zsAAZ1saiJd8PpHPSNn_0Q7fr8cPPHHEQMD42vl84UKA00Lbx1eJcEippobMw_Eb2PGZHeViB_9nkLVqX9B7eCgMfySOi2D38qPmtcdWvklOF8blvMrOC0I"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+</div>
+<!-- Card Content -->
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="text-primary-container font-headline-md text-[18px] font-bold mb-4 border-b border-outline-variant pb-2">15 JULI 2026 | GOLD</h3>
+<ul class="space-y-3 font-body-md text-[14px] text-on-surface-variant mb-6 flex-1">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="calendar_today">calendar_today</span>
+<span>15 Juli 2026</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="hotel">hotel</span>
+<span>Jumeirah Jabal Omar (Makkah)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="hotel">hotel</span>
+<span>Peninsula Worth (Madinah)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="flight">flight</span>
+<span>Garuda Indonesia</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="location_on">location_on</span>
+<span>Soekarno-Hatta International Airport (CGK)</span>
+</li>
+</ul>
+<div class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<span class="font-headline-md text-[16px] font-bold">Sisa Seat : 14</span>
+</div>
+<div class="w-full bg-surface-bright rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 70%"></div>
+</div>
+</div>
+<div class="mb-6">
+<span class="font-body-md text-[14px] text-on-surface-variant block mb-1">Harga mulai :</span>
+<span class="font-headline-md text-[24px] font-bold text-primary-container">IDR 49.650.000,00</span>
+</div>
+<a class="block text-center w-full py-3 bg-primary-container hover:bg-primary-fixed-dim text-on-primary font-label-md rounded-md transition-colors duration-300" href="#">
+            DETAIL PAKET
+          </a>
+</div>
+</article>
+<!-- END: Card 2 -->
+<!-- BEGIN: Card 3 -->
+<article class="bg-surface-container-low rounded-xl overflow-hidden shadow-lg border border-outline-variant flex flex-col group transition-transform duration-300 hover:-translate-y-2 hover:border-primary-container/50">
+<!-- Card Image Placeholder -->
+<div class="h-48 bg-surface-bright relative overflow-hidden">
+<img alt="Umroh Bronze Package Cover" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKTs0Zqptxbv9y3IV6Evz3KDjLK-l9W6NWeMJz4Ejv4qTTdPjulDWfef6rBU4WtYpqzoNHKTemPOTrqHWNlSW7ON5QFj394bnyrQKISasvAALQKRQpZIMn9KtseSrVVEp0hrW-ECsEOwSLb_269x63ACL5A6HJ6GLLnYO3plkghP8eVcz6dGX7lDyVgURM9FtzC_dp98ATiS-J6CfU_aH4GnyOh0yFYT2TI1ESzFWDdVih40kZSS7GJMk88S7jzfbSL1mg_JBJxE8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+</div>
+<!-- Card Content -->
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="text-primary-container font-headline-md text-[18px] font-bold mb-4 border-b border-outline-variant pb-2">30 JULI 2026 | BRONZE</h3>
+<ul class="space-y-3 font-body-md text-[14px] text-on-surface-variant mb-6 flex-1">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="calendar_today">calendar_today</span>
+<span>30 Juli 2026</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="hotel">hotel</span>
+<span>Al Shohada Hotel (Makkah)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="hotel">hotel</span>
+<span>Concorde Dar Al Khair Hotel (Madinah)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="flight">flight</span>
+<span>Garuda Indonesia</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="location_on">location_on</span>
+<span>Soekarno-Hatta International Airport (CGK)</span>
+</li>
+</ul>
+<div class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<span class="font-headline-md text-[16px] font-bold">Sisa Seat : 3</span>
+</div>
+<div class="w-full bg-surface-bright rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 15%"></div>
+</div>
+</div>
+<div class="mb-6">
+<span class="font-body-md text-[14px] text-on-surface-variant block mb-1">Harga mulai :</span>
+<span class="font-headline-md text-[24px] font-bold text-primary-container">IDR 41.900.000,00</span>
+</div>
+<a class="block text-center w-full py-3 bg-primary-container hover:bg-primary-fixed-dim text-on-primary font-label-md rounded-md transition-colors duration-300" href="#">
+            DETAIL PAKET
+          </a>
+</div>
+</article>
+<!-- END: Card 3 -->
+<!-- BEGIN: Card 4 -->
+<article class="bg-surface-container-low rounded-xl overflow-hidden shadow-lg border border-outline-variant flex flex-col group transition-transform duration-300 hover:-translate-y-2 hover:border-primary-container/50">
+<!-- Card Image Placeholder -->
+<div class="h-48 bg-surface-bright relative overflow-hidden">
+<img alt="Umroh Bronze Package Cover" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrh7ulYSXe5HPP3WvQ4KMEmSjZFP2EFTVR-Bzb3uRR4olj3-LtlyiXgPTeKkpK96iEaoj5kmY5NiLctDGK7HbRkUA5Kzt5DwsCAL0ZqK1VXBbhq4of73h0NbEjOh1CGXNmEWn_Btt6C6cQpXqvWSyoDzl7BKgEJt2Oe0cLt4f-7aVpjMhu6avcD9piaexpoGSMtM0L-oPH_hnJecy8ZThf7a3Te-SCvMKqW8aAo8RZAy20CbdWuXyY2wY4vHEiOraeAezYCE3zBt0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+</div>
+<!-- Card Content -->
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="text-primary-container font-headline-md text-[18px] font-bold mb-4 border-b border-outline-variant pb-2">03 AGUSTUS 2026 | BRONZE</h3>
+<ul class="space-y-3 font-body-md text-[14px] text-on-surface-variant mb-6 flex-1">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="calendar_today">calendar_today</span>
+<span>03 Agustus 2026</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="hotel">hotel</span>
+<span>Al Shohada Hotel (Makkah)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="hotel">hotel</span>
+<span>Concorde Dar Al Khair Hotel (Madinah)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="flight">flight</span>
+<span>Garuda Indonesia</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="location_on">location_on</span>
+<span>Soekarno-Hatta International Airport (CGK)</span>
+</li>
+</ul>
+<div class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<span class="font-headline-md text-[16px] font-bold">Sisa Seat : 6</span>
+</div>
+<div class="w-full bg-surface-bright rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 30%"></div>
+</div>
+</div>
+<div class="mb-6">
+<span class="font-body-md text-[14px] text-on-surface-variant block mb-1">Harga mulai :</span>
+<span class="font-headline-md text-[24px] font-bold text-primary-container">IDR 41.700.000,00</span>
+</div>
+<a class="block text-center w-full py-3 bg-primary-container hover:bg-primary-fixed-dim text-on-primary font-label-md rounded-md transition-colors duration-300" href="#">
+            DETAIL PAKET
+          </a>
+</div>
+</article>
+<!-- END: Card 4 -->
+</div>
+<!-- END: Packages Grid -->
+</div>
+</section>
+<!-- FIT Package Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-background text-on-surface">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16 flex flex-col items-center">
+<span class="font-label-md text-label-md text-white uppercase tracking-widest mb-2">Kualitas &amp; Kepercayaan</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary-container">Mengapa Memilih Talita Umroh</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-y-16 gap-x-gutter">
+<div class="flex flex-col items-center text-center">
+<div class="w-32 h-32 mb-6 relative flex items-center justify-center"><div class="absolute inset-0 rounded-full bg-[#D4AF37]/10 blur-2xl"></div>
+<img alt="Official Badge" class="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+<span class="material-symbols-outlined absolute text-primary-container text-[40px]" data-icon="verified">verified</span>
+</div>
+<h3 class="font-headline-md text-[20px] text-white mb-3">Biro Haji Umroh Resmi</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Kami telah mengantongi ijin Penyelenggara Umroh Resmi dari Kementerian Agama dengan komitmen legalitas penuh.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-32 h-32 mb-6 relative flex items-center justify-center"><div class="absolute inset-0 flex items-center justify-center opacity-20"><div class="w-24 h-24 border border-[#D4AF37] rounded-full"></div><div class="absolute w-16 h-16 border border-[#D4AF37] rounded-full"></div></div>
+<img alt="Accreditation Badge" class="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+<span class="material-symbols-outlined absolute text-primary-container text-[40px]" data-icon="workspace_premium">workspace_premium</span>
+</div>
+<h3 class="font-headline-md text-[20px] text-white mb-3">Akreditasi A</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Memiliki Akreditasi Baik Sekali sebagai bukti komitmen kami dalam memberikan pelayanan profesional dan berkualitas.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-32 h-32 mb-6 relative flex items-center justify-center"><div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#D4AF37_0%,_transparent_70%)] scale-150 rotate-45"></div>
+<img alt="Best Operator Badge" class="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+<span class="material-symbols-outlined absolute text-primary-container text-[40px]" data-icon="military_tech">military_tech</span>
+</div>
+<h3 class="font-headline-md text-[20px] text-white mb-3">Operator Umroh Terbaik</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Salah satu penyelenggara dengan predikat operator terbaik dalam kompetisi pariwisata Halal Nasional.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-32 h-32 mb-6 relative flex items-center justify-center"><div class="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/20 to-transparent rounded-t-full"></div>
+<img alt="Manasik Badge" class="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+<span class="material-symbols-outlined absolute text-primary-container text-[40px]" data-icon="school">school</span>
+</div>
+<h3 class="font-headline-md text-[20px] text-white mb-3">Sekolah Manasik</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Persiapan ibadah dengan kurikulum lengkap dan pembimbing berpengalaman untuk ibadah yang lebih bermakna.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-32 h-32 mb-6 relative flex items-center justify-center"><div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#D4AF37 0.5px, transparent 0.5px); background-size: 8px 8px;"></div>
+<img alt="Handling Badge" class="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+<span class="material-symbols-outlined absolute text-primary-container text-[40px]" data-icon="groups">groups</span>
+</div>
+<h3 class="font-headline-md text-[20px] text-white mb-3">Tim Handling Profesional</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Petugas perwakilan di Makkah dan Madinah yang siap melayani seluruh akomodasi dan kebutuhan jamaah.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-32 h-32 mb-6 relative flex items-center justify-center"><div class="absolute inset-0 flex flex-col justify-center gap-2 opacity-20"><div class="h-px w-full bg-[#D4AF37]"></div><div class="h-px w-3/4 bg-[#D4AF37] mx-auto"></div><div class="h-px w-full bg-[#D4AF37]"></div></div>
+<img alt="Departure Badge" class="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+<span class="material-symbols-outlined absolute text-primary-container text-[40px]" data-icon="flight_takeoff">flight_takeoff</span>
+</div>
+<h3 class="font-headline-md text-[20px] text-white mb-3">Pasti Berangkat</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Kami menjamin keberangkatan tepat waktu sesuai jadwal yang Anda pilih dengan kepastian kursi yang tersedia.</p>
+</div>
+</div>
+</div>
+</section><section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-[#FFF8ED]">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row items-center gap-12">
+<!-- Left: Image -->
+<div class="w-full md:w-5/12 flex justify-center">
+<img alt="Family in Ihram" class="w-full h-auto object-cover rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrh7ulYSXe5HPP3WvQ4KMEmSjZFP2EFTVR-Bzb3uRR4olj3-LtlyiXgPTeKkpK96iEaoj5kmY5NiLctDGK7HbRkUA5Kzt5DwsCAL0ZqK1VXBbhq4of73h0NbEjOh1CGXNmEWn_Btt6C6cQpXqvWSyoDzl7BKgEJt2Oe0cLt4f-7aVpjMhu6avcD9piaexpoGSMtM0L-oPH_hnJecy8ZThf7a3Te-SCvMKqW8aAo8RZAy20CbdWuXyY2wY4vHEiOraeAezYCE3zBt0"/>
+</div>
+<!-- Right: Content -->
+<div class="w-full md:w-7/12 flex flex-col">
+<h2 class="font-headline-lg text-[32px] md:text-[40px] font-bold text-[#1b1b1b] mb-4">
+            Atur sendiri jadwal Umroh sesuai keinginanmu
+        </h2>
+<p class="font-body-md text-[16px] text-[#47464a] mb-8 leading-relaxed">
+            Layanan umroh mandiri (FIT) dapat memberikan Pengalaman umroh lebih nyaman serta eksklusif bersama keluarga tercinta. Dengan layanan umroh mandiri anda bisa menentukan waktu umroh, pesawat, hotel dan jadwal umroh
+        </p>
+<div class="mb-8">
+<button class="bg-[#D4AF37] text-white font-label-md text-label-md py-3 px-8 rounded-lg hover:bg-[#c39b26] transition-all duration-300">
+                Pesan Umroh Sekarang
+            </button>
+</div>
+<!-- Features Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Feature 1 -->
+<div class="flex items-start gap-4">
+<div class="bg-white p-2 rounded-lg shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[#1b1b1b]" data-icon="schedule">schedule</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Waktu yg Flexible</h4>
+<p class="font-body-md text-[14px] text-[#47464a]">Pilih tanggal berangkat dan pulang</p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="flex items-start gap-4">
+<div class="bg-white p-2 rounded-lg shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[#1b1b1b]" data-icon="hotel">hotel</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Nyaman &amp; Aman</h4>
+<p class="font-body-md text-[14px] text-[#47464a]">Pilih hotel dan pesawat sesuai keinginan</p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="flex items-start gap-4">
+<div class="bg-white p-2 rounded-lg shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[#1b1b1b]" data-icon="person">person</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Umroh Sepuasnya</h4>
+<p class="font-body-md text-[14px] text-[#47464a]">Tentukan jumlah umroh sendiri</p>
+</div>
+</div>
+<!-- Feature 4 -->
+<div class="flex items-start gap-4">
+<div class="bg-white p-2 rounded-lg shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[#1b1b1b]" data-icon="map">map</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Destinasi Tujuan</h4>
+<p class="font-body-md text-[14px] text-[#47464a]">Atur destinasi tujuan sendiri</p>
+</div>
+</div>
+<!-- Feature 5 -->
+<div class="flex items-start gap-4">
+<div class="bg-white p-2 rounded-lg shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[#1b1b1b]" data-icon="assignment">assignment</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Sesuai dengan Kebutuhan</h4>
+<p class="font-body-md text-[14px] text-[#47464a]">Tentukan jumlah hari sendiri</p>
+</div>
+</div>
+<!-- Feature 6 -->
+<div class="flex items-start gap-4">
+<div class="bg-white p-2 rounded-lg shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[#1b1b1b]" data-icon="star">star</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Lebih Eksklusif</h4>
+<p class="font-body-md text-[14px] text-[#47464a]">Pilih fasilitas yang menarik</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-background text-on-surface">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-[#D4AF37] mb-6">Apa Kata Mereka</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container rounded-xl p-6 border border-[#D4AF37]/20 flex flex-col gap-4">
+<div class="flex text-[#D4AF37]">
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="material-symbols-outlined" data-icon="star">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant flex-1">
+                    "Pelayanan sangat profesional. Hotel di Makkah sangat dekat dengan Masjidil Haram. Terima kasih Talita Umroh."
+                </p>
+<div class="flex items-center gap-4 mt-4">
+<div class="w-12 h-12 rounded-full bg-surface-bright flex items-center justify-center text-[#D4AF37] font-headline-md">
+                        A
+                    </div>
+<div>
+<h4 class="font-headline-md text-[16px] text-white">Ahmad Fauzi</h4>
+<p class="font-label-sm text-on-surface-variant">Jamaah Umrah 2024</p>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container rounded-xl p-6 border border-[#D4AF37]/20 flex flex-col gap-4">
+<div class="flex text-[#D4AF37]">
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="material-symbols-outlined" data-icon="star">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant flex-1">
+                    "Pembimbing ibadahnya sangat sabar dan detail menjelaskan setiap rukun umroh. Sangat merekomendasikan paket VIP."
+                </p>
+<div class="flex items-center gap-4 mt-4">
+<div class="w-12 h-12 rounded-full bg-surface-bright flex items-center justify-center text-[#D4AF37] font-headline-md">
+                        S
+                    </div>
+<div>
+<h4 class="font-headline-md text-[16px] text-white">Siti Aminah</h4>
+<p class="font-label-sm text-on-surface-variant">Jamaah Umrah 2024</p>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container rounded-xl p-6 border border-[#D4AF37]/20 flex flex-col gap-4">
+<div class="flex text-[#D4AF37]">
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="material-symbols-outlined" data-icon="star">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant flex-1">
+                    "Alhamdulillah perjalanan lancar dari berangkat sampai pulang. Makanan selera nusantara tersedia setiap hari."
+                </p>
+<div class="flex items-center gap-4 mt-4">
+<div class="w-12 h-12 rounded-full bg-surface-bright flex items-center justify-center text-[#D4AF37] font-headline-md">
+                        B
+                    </div>
+<div>
+<h4 class="font-headline-md text-[16px] text-white">Budi Santoso</h4>
+<p class="font-label-sm text-on-surface-variant">Jamaah Umrah 2024</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-background text-on-surface" id="galeri-perjalanan">
+<div class="max-w-container-max mx-auto">
+<!-- Section Header -->
+<div class="text-center mb-12 flex flex-col items-center">
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary-container mb-4 relative inline-block">
+        Galeri Perjalanan
+        <div class="h-px w-3/4 bg-primary-container mx-auto mt-2"></div>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl mx-auto leading-relaxed">
+        Momen-momen berharga dari jamaah kami dalam menunaikan ibadah suci di tanah suci.
+      </p>
+</div>
+<!-- Category Filters -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+<!-- FILTER TAHUN -->
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-label-sm text-label-sm text-primary-container uppercase tracking-widest">FILTER TAHUN</span>
+<div class="flex flex-wrap justify-center md:justify-start gap-2">
+<button class="px-6 py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md transition-all">Semua</button>
+<button class="px-6 py-2 rounded-lg border border-primary-container/30 text-primary-container font-label-md text-label-md hover:bg-primary/10 transition-all">2024</button>
+<button class="px-6 py-2 rounded-lg border border-primary-container/30 text-primary-container font-label-md text-label-md hover:bg-primary/10 transition-all">2023</button>
+<button class="px-6 py-2 rounded-lg border border-primary-container/30 text-primary-container font-label-md text-label-md hover:bg-primary/10 transition-all">2022</button>
+</div>
+</div>
+<!-- FILTER KATEGORI -->
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-label-sm text-label-sm text-primary-container uppercase tracking-widest">FILTER KATEGORI</span>
+<div class="flex flex-wrap justify-center md:justify-start gap-2">
+<button class="px-6 py-2 rounded-lg border border-primary-container/30 text-primary-container font-label-md text-label-md hover:bg-primary/10 transition-all">Umroh VIP</button>
+<button class="px-6 py-2 rounded-lg border border-primary-container/30 text-primary-container font-label-md text-label-md hover:bg-primary/10 transition-all">Umroh Plus</button>
+</div>
+</div>
+<!-- FILTER DESTINASI -->
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-label-sm text-label-sm text-primary-container uppercase tracking-widest">FILTER DESTINASI</span>
+<div class="flex flex-wrap justify-center md:justify-start gap-2">
+<button class="px-6 py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md transition-all">Semua</button>
+<button class="px-6 py-2 rounded-lg border border-primary-container/30 text-primary-container font-label-md text-label-md hover:bg-primary/10 transition-all">Mekkah</button>
+<button class="px-6 py-2 rounded-lg border border-primary-container/30 text-primary-container font-label-md text-label-md hover:bg-primary/10 transition-all">Madinah</button>
+<button class="px-6 py-2 rounded-lg border border-primary-container/30 text-primary-container font-label-md text-label-md hover:bg-primary/10 transition-all">Turki</button>
+<button class="px-6 py-2 rounded-lg border border-primary-container/30 text-primary-container font-label-md text-label-md hover:bg-primary/10 transition-all">Al-Ula</button>
+<button class="px-6 py-2 rounded-lg border border-primary-container/30 text-primary-container font-label-md text-label-md hover:bg-primary/10 transition-all">Dubai</button>
+<button class="px-6 py-2 rounded-lg border border-primary-container/30 text-primary-container font-label-md text-label-md hover:bg-primary/10 transition-all">Mesir</button>
+<button class="px-6 py-2 rounded-lg border border-primary-container/30 text-primary-container font-label-md text-label-md hover:bg-primary/10 transition-all">Aqsa</button>
+</div>
+</div>
+</div>
+<!-- Photo Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+<div class="aspect-[4/3] rounded-xl overflow-hidden group">
+<img alt="Jamaah at Masjid Nabawi" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQLnvH0b0S5quDZP-7__qU_y1I8L62HYNd9hMi5_tr1Bv1qQJWhGDGN_-7Kzob9FR0DtBe4f8zB8sr0JgAuIA1haFKgdlPc-zWqK8X9uUJDKrlblNvJ-rNOxz8ByiIzUM-pa0isl8-PPA4XB8WHYj4eYfhrmg0J7QO_PYr85cYY8SxaoL9oKDr3hUqZ8g215q5U79zWvF2JnuOle9lSOVhjRuH-AO3rywF7RUdULW0e2lQdS5URw2Lk8RuZAkhvZskIEHYnUbgYmY"/>
+</div>
+<div class="aspect-[4/3] rounded-xl overflow-hidden group">
+<img alt="Spiritual Moment" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+</div>
+<div class="aspect-[4/3] rounded-xl overflow-hidden group">
+<img alt="Jamaah Gathering" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq0XKc3oe16S73DlMXVsNitwU1gjcVaOmZb8MMsOqwSAxMrn5YtE0uvpvzy4BPd1_xEToeWWr75U7iK93LwV4ic_1OX78oB6VwLymwJt8GCPAxSkqgSXyoblRISyXIWJ3xDx_xeJVAnDte_zWPP368zsAAZ1saiJd8PpHPSNn_0Q7fr8cPPHHEQMD42vl84UKA00Lbx1eJcEippobMw_Eb2PGZHeViB_9nkLVqX9B7eCgMfySOi2D38qPmtcdWvklOF8blvMrOC0I"/>
+</div>
+<div class="aspect-[4/3] rounded-xl overflow-hidden group">
+<img alt="Masjidil Haram View" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKTs0Zqptxbv9y3IV6Evz3KDjLK-l9W6NWeMJz4Ejv4qTTdPjulDWfef6rBU4WtYpqzoNHKTemPOTrqHWNlSW7ON5QFj394bnyrQKISasvAALQKRQpZIMn9KtseSrVVEp0hrW-ECsEOwSLb_269x63ACL5A6HJ6GLLnYO3plkghP8eVcz6dGX7lDyVgURM9FtzC_dp98ATiS-J6CfU_aH4GnyOh0yFYT2TI1ESzFWDdVih40kZSS7GJMk88S7jzfbSL1mg_JBJxE8"/>
+</div>
+<div class="aspect-[4/3] rounded-xl overflow-hidden group">
+<img alt="Pilgrims performing Tawaf around the Kaaba" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyy0RlihR3CYngLzYPBDmUZCB2E4x8ScbSuFQbLiYppE5ItM77yMmPE15b7EBq119PcltBx74OWeqn5s2lBqh-KBNwETNATCfi2boKfWqiaSJMDKhhuU8ITGSkNToZjUf9JFr2zfh0YMCEbWMZmjGWvuldlIiak0QrNjdhhybO9tDaFEkEpYblW5i3iRPMJs7arEhP7j1dcNG_I37SAqY8oWYNwD2EkI4tNfQe8OWubPcEEvRwBAkP7thUAAOnWPjx03S5Az-hqdo"/>
+</div>
+<div class="aspect-[4/3] rounded-xl overflow-hidden group">
+<img alt="Pilgrims praying inside a majestic mosque" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy7qVpOPWnaP0Csr-2zPaOqiKoMIrwaQwebhcqoj9PATOYMUFZgJ8xwrDOBDnLNYZG6oGUV7HQfaglVihhQTmnoqW5Mv7MiivdPXGQUvdAn0gi6tzDnDnGWPgM1DgAvT-26sO6CPK2TQHJq3NMJI0Eq7sjdwu9NWMgIFdVPn10DUFhI7EKHbnV_RzoSna1a9myMfXKn8GPbjxXDeos72tSgdXIEiCbM95CXlYXg-227PVILd9owB4dBbCzH0_-A_vCMvbbZZRHO6g"/>
+</div>
+<div class="aspect-[4/3] rounded-xl overflow-hidden group">
+<img alt="Luxury hotel room with Kaaba view" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp26Ou2IWAnWQ8Yn5RZR9sLV5JadDNZSl4r4EZMSJFD3sljWQkzkSeoeb56_CUe9AxAl2cjghqcvtH_IaOD-OZab92alAvfdZRh8V9nfbUQ6X_yHv20zdiT4A7gzs4Yy7Q2tqLze-e_Hr-gUCtUrws3FBgBSZDtmpBCFXbCJv78WLrwLMv7J6qTrXWt6-17dT832qX7cWsGMw6nHU4SAEbNrToxYDTBwK1FzJpAzW9LmMrEW-SMqLctLgMRVqZ7UrxqleHjLYo43g"/>
+</div>
+<div class="aspect-[4/3] rounded-xl overflow-hidden group">
+<img alt="Prophet's Mosque in Medina at night" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKIWrOdSmmDBQl61R8wVhe0twG7VfaZsiGmy22GHzQIEAu7LxvCHXapbZBEk6EoftTwbWqn2V8LlWsYzbESCAHec9cKCbcF5DEDeO7XHZ10KHCUhZF-gzU0h3VPxIxvJMN9Uvenfc01-PL8_i31K8kHEVpaOx4ZNbNetnAZWUkY--JxDO7kl36-bMeJ_vcl3fg8yLQVNGAEoEYSHZkG6pxdvyueibDZXmuo2XWB7gW1OZdvXVkFcj126MdD04SVECpDaqEcDhAYxw"/>
+</div></div>
+<!-- CTA Button -->
+<div class="flex justify-center">
+<button class="bg-primary-container text-on-primary font-label-md text-label-md py-3 px-10 rounded-lg hover:bg-primary-fixed-dim transition-all duration-300 gold-glow">
+        Lihat Lebih Banyak
+      </button>
+</div>
+</div>
+</section><footer class="bg-surface-container-lowest text-on-surface w-full py-section-gap border-t border-primary/30 mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<!-- Column 1: Logo & Bio -->
+<div class="flex flex-col gap-4">
+<div class="font-display-lg text-headline-md text-primary" style="font-size: 24px; line-height: 32px;">
+                    Talita Umroh
+                </div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-xs">
+                    Penyedia layanan perjalanan Ibadah Umrah dan Haji Plus terpercaya dengan komitmen melayani sepenuh hati untuk ibadah yang mabrur.
+                </p>
+</div>
+<!-- Column 2: Quick Links -->
+<div>
+<h4 class="font-headline-md text-[20px] mb-6 text-on-surface">Tautan Cepat</h4>
+<ul class="flex flex-col gap-3">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline focus:ring-2 focus:ring-primary/50 transition-all" href="#">Paket VIP</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline focus:ring-2 focus:ring-primary/50 transition-all" href="#">Paket Ekonomi</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline focus:ring-2 focus:ring-primary/50 transition-all" href="#">Jadwal Keberangkatan</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline focus:ring-2 focus:ring-primary/50 transition-all" href="#">Persyaratan Visa</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline focus:ring-2 focus:ring-primary/50 transition-all" href="#">Pusat Bantuan</a></li>
+</ul>
+</div>
+<!-- Column 3: Contact Info -->
+<div>
+<h4 class="font-headline-md text-[20px] mb-6 text-on-surface">Hubungi Kami</h4>
+<ul class="flex flex-col gap-4">
+<li class="flex items-start gap-3 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="phone_in_talk">phone_in_talk</span>
+<a class="font-body-md text-body-md" href="tel:+6281234567890">+62 812 3456 7890</a>
+</li>
+<li class="flex items-start gap-3 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+<a class="font-body-md text-body-md" href="mailto:info@talitaumroh.com">info@talitaumroh.com</a>
+</li>
+<li class="flex items-start gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="location_on">location_on</span>
+<span class="font-body-md text-body-md">Gedung Perkantoran Menara Mulia Lt. 12<br/>Jl. Gatot Subroto Kav. 9-11<br/>Jakarta Selatan 12930</span>
+</li>
+</ul>
+</div>
+<!-- Column 4: Newsletter -->
+<div>
+<h4 class="font-headline-md text-[20px] mb-6 text-on-surface">Berlangganan Info</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                    Dapatkan info promo dan jadwal keberangkatan terbaru.
+                </p>
+<form class="flex flex-col gap-3">
+<input class="w-full bg-surface border border-outline-variant text-on-surface font-body-md text-body-md rounded-lg p-3 focus:ring-1 focus:ring-primary focus:border-primary transition-colors" placeholder="Alamat Email" required="" type="email"/>
+<button class="w-full bg-primary-container text-on-primary font-label-md text-label-md py-3 px-6 rounded-lg hover:bg-primary-fixed-dim transition-all duration-300 gold-glow" type="submit">
+                        Berlangganan
+                    </button>
+</form>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop mt-16 pt-8 border-t border-outline-variant/30 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                © 2024 Talita Umroh. Perjalanan Ibadah yang Amanah dan Terpercaya.
+            </p>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="public">public</span></a>
+</div>
+</div>
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach</script></body></html>
