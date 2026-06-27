@@ -91,7 +91,7 @@ export default function ArticleSection() {
 
                   {/* Read More Link */}
                   <div className="mt-auto">
-                    <Link href="#" className="inline-flex items-center gap-1 text-primary hover:text-primary-container font-label-md transition-colors group/link">
+                    <Link href={`/artikel/${article.id}`} className="inline-flex items-center gap-1 text-primary hover:text-primary-container font-label-md transition-colors group/link">
                       Baca Selengkapnya
                       <ChevronRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
                     </Link>

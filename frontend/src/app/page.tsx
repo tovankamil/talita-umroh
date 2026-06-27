@@ -64,8 +64,9 @@ export default function Home() {
 </ScrollReveal>
 {/* Mengapa Memilih Kami? */}
 <ScrollReveal direction="up">
-<section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-[#f9f9f9] text-on-surface" id="mengapa-kami">
-<div className="max-w-container-max mx-auto">
+<section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-[#FFF8ED] text-on-surface relative overflow-hidden" id="mengapa-kami">
+<div className="absolute inset-0 bg-[url('/images/pattern.png')] bg-repeat bg-[length:300px_300px] opacity-10 pointer-events-none"></div>
+<div className="max-w-container-max mx-auto relative z-10">
 {/* BEGIN: Section Header */}
 <ScrollReveal direction="up" delay={0.1}>
 <div className="text-center mb-16 flex flex-col items-center">
