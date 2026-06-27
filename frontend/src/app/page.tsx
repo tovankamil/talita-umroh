@@ -5,6 +5,7 @@ import Link from 'next/link';
 import TestimonialSlider from "@/components/TestimonialSlider";
 import HeroSlider from "@/components/HeroSlider";
 import GalleryFilter from "@/components/GalleryFilter";
+import WeatherClockBar from "@/components/WeatherClockBar";
 import { Plane, Building2, ShieldCheck } from 'lucide-react';
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
 
 {/* TopNavBar */}
 <header className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-primary/10 shadow-[0_4px_30px_rgba(212,175,55,0.05)]">
+<WeatherClockBar />
 <div className="flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
 {/* Brand Logo */}
 <a className="font-display-lg text-headline-md text-primary tracking-tight" href="#" style={{"fontSize":"24px","lineHeight":"32px"}}>
@@ -41,7 +43,7 @@ export default function Home() {
 </div>
 </div>
 </header>
-<main className="flex-grow pt-20">
+<main className="flex-grow pt-[112px]">
 <HeroSlider />
 {/* Trust Bar */}
 <section className="bg-surface-container-low py-8 border-y border-outline-variant/20">

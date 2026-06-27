@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { ShieldCheck, X } from 'lucide-react';
+import { Star, X, MapPin, Clock } from 'lucide-react';
 
 const dummyNotifications = [
-  { name: 'Ma***', action: 'telah upgrade Membership', location: 'INDONESIA', time: '9 hari lalu' },
-  { name: 'IN*** MU***', action: 'telah bergabung sebagai Member', location: 'KOTA MEDAN', time: '6 hari lalu' },
-  { name: 'An***', action: 'berhasil mendaftar Umroh VIP', location: 'JAKARTA', time: '1 jam lalu' },
-  { name: 'Fa*** RI***', action: 'telah bergabung sebagai Mitra', location: 'SURABAYA', time: '2 hari lalu' },
-  { name: 'De***', action: 'baru saja memesan Umroh Plus Turki', location: 'BANDUNG', time: '30 menit lalu' },
+  { name: 'Bpk. Mahmud', action: 'Baru saja memesan Paket Umroh VIP', location: 'Jakarta', time: '5 menit lalu', rating: 5 },
+  { name: 'Ibu Siti Khadijah', action: 'Telah bergabung sebagai Mitra Talita', location: 'Medan', time: '12 menit lalu', rating: 5 },
+  { name: 'Keluarga Anwar', action: 'Berhasil mendaftar Umroh Plus Turki', location: 'Surabaya', time: '1 jam lalu', rating: 5 },
+  { name: 'Bpk. Ridwan', action: 'Telah melunasi Paket Ramadhan', location: 'Bandung', time: '2 jam lalu', rating: 5 },
+  { name: 'Ibu Fatimah', action: 'Baru saja memberikan ulasan Bintang 5', location: 'Makassar', time: 'Hari ini', rating: 5 },
 ];
 
 export default function RecentJoinPopup() {
@@ -18,36 +18,23 @@ export default function RecentJoinPopup() {
 
   useEffect(() => {
     if (isClosed) return;
-
-    // Start by showing the first popup after 3 seconds
-    const initialDelay = setTimeout(() => {
-      setIsVisible(true);
-    }, 3000);
-
+    const initialDelay = setTimeout(() => setIsVisible(true), 3500);
     return () => clearTimeout(initialDelay);
   }, [isClosed]);
 
   useEffect(() => {
     if (isClosed || !isVisible) return;
-
-    // Hide after 5 seconds
-    const hideTimer = setTimeout(() => {
-      setIsVisible(false);
-    }, 5000);
-
+    const hideTimer = setTimeout(() => setIsVisible(false), 5500);
     return () => clearTimeout(hideTimer);
   }, [isVisible, isClosed]);
 
   useEffect(() => {
     if (isClosed) return;
-    if (isVisible) return; // Don't change index while visible
-
-    // Wait 4 seconds while hidden, then show next
+    if (isVisible) return; 
     const showNextTimer = setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % dummyNotifications.length);
       setIsVisible(true);
-    }, 4000);
-
+    }, 4500);
     return () => clearTimeout(showNextTimer);
   }, [isVisible, isClosed]);
 
@@ -57,40 +44,59 @@ export default function RecentJoinPopup() {
 
   return (
     <div 
-      className={`fixed bottom-4 left-4 md:bottom-8 md:left-8 z-50 transition-all duration-700 ease-in-out transform ${
+      className={`fixed bottom-6 left-6 md:bottom-10 md:left-10 z-[100] transition-all duration-[800ms] cubic-bezier(0.4, 0, 0.2, 1) transform ${
         isVisible 
-          ? 'translate-y-0 opacity-100 scale-100 pointer-events-auto' 
-          : 'translate-y-10 opacity-0 scale-95 pointer-events-none'
+          ? 'translate-y-0 opacity-100 scale-100' 
+          : 'translate-y-16 opacity-0 scale-90 pointer-events-none'
       }`}
     >
-      <div className="bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.2)] p-4 pr-10 border border-gray-100 flex items-center gap-4 relative max-w-[320px]">
+      {/* Glow Effect Behind */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-primary-container/30 rounded-2xl blur-lg opacity-70 animate-pulse"></div>
+      
+      {/* Main Card - Dark Glassmorphism */}
+      <div className="relative bg-[#0A0A0A]/90 backdrop-blur-2xl rounded-2xl p-5 border border-primary/20 shadow-2xl flex flex-col gap-3 max-w-[340px] overflow-hidden group">
         
+        {/* Shimmer overlay */}
+        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/5 to-transparent group-hover:animate-shimmer pointer-events-none"></div>
+
         {/* Close Button */}
         <button 
           onClick={() => setIsClosed(true)}
-          className="absolute top-2 right-2 text-gray-400 hover:text-gray-700 transition-colors"
-          aria-label="Tutup notifikasi"
+          className="absolute top-3 right-3 text-on-surface-variant hover:text-primary transition-colors bg-surface/50 rounded-full p-1"
         >
-          <X className="w-4 h-4" />
+          <X className="w-3.5 h-3.5" />
         </button>
 
-        {/* Icon */}
-        <div className="w-12 h-12 rounded-lg flex-shrink-0 bg-gradient-to-br from-primary-container to-primary flex items-center justify-center shadow-inner relative">
-           <ShieldCheck className="w-6 h-6 text-on-primary" />
-           {/* Green dot indicator */}
-           <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
+        {/* Top Header - Rating & Time */}
+        <div className="flex justify-between items-center pr-6">
+          <div className="flex gap-0.5">
+            {[...Array(currentNotif.rating)].map((_, i) => (
+              <Star key={i} className="w-3.5 h-3.5 fill-primary text-primary" />
+            ))}
+          </div>
+          <div className="flex items-center gap-1.5 text-on-surface-variant/80 text-[11px] font-medium">
+            <Clock className="w-3 h-3" />
+            {currentNotif.time}
+          </div>
         </div>
 
-        {/* Text Content */}
-        <div className="flex flex-col gap-1 w-full">
-          <div className="flex flex-col">
-            <span className="font-bold text-[14px] text-primary leading-tight">{currentNotif.name}</span>
-            <span className="text-[12px] text-gray-600 leading-tight">{currentNotif.action}</span>
+        {/* Main Content */}
+        <div className="flex flex-col gap-1">
+          <h4 className="font-display-lg text-primary text-lg tracking-wide leading-tight">
+            {currentNotif.name}
+          </h4>
+          <p className="text-on-surface text-sm font-light leading-snug">
+            {currentNotif.action}
+          </p>
+        </div>
+
+        {/* Bottom Footer - Location */}
+        <div className="mt-1 pt-3 border-t border-white/5 flex items-center justify-between">
+          <div className="flex items-center gap-1.5 text-on-surface-variant text-xs">
+            <MapPin className="w-3.5 h-3.5 text-primary" />
+            {currentNotif.location}
           </div>
-          <div className="flex justify-between items-center mt-1 w-full">
-            <span className="text-[10px] font-semibold text-blue-800 uppercase tracking-wide">{currentNotif.location}</span>
-            <span className="text-[10px] font-bold text-primary">{currentNotif.time}</span>
-          </div>
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
         </div>
 
       </div>
