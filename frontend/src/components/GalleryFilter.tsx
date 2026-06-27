@@ -4,18 +4,18 @@ import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 
 const dummyImages = [
-  { id: 1, url: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Makkah_-_Kaaba_2.jpg', alt: 'Makkah Kaaba', tahun: '2024', kategori: 'Umroh VIP', destinasi: 'Mekkah' },
-  { id: 2, url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Masjid_Nabawi._Medina%2C_Saudi_Arabia.jpg', alt: 'Masjid Nabawi', tahun: '2024', kategori: 'Umroh VIP', destinasi: 'Madinah' },
-  { id: 3, url: 'https://upload.wikimedia.org/wikipedia/commons/a/af/Hagia_Sophia_Mars_2013.jpg', alt: 'Hagia Sophia Turki', tahun: '2023', kategori: 'Umroh Plus', destinasi: 'Turki' },
-  { id: 4, url: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Mada%27in_Saleh%2C_Al-Ula%2C_Saudi_Arabia.jpg', alt: 'Al-Ula Saudi', tahun: '2024', kategori: 'Umroh Plus', destinasi: 'Al-Ula' },
-  { id: 5, url: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Dubai_Skylines_at_night_%28Pexels_3787839%29.jpg', alt: 'Dubai Skyline', tahun: '2022', kategori: 'Umroh Plus', destinasi: 'Dubai' },
+  { id: 1, url: '/images/hero-makkah.png', alt: 'Makkah Kaaba', tahun: '2024', kategori: 'Umroh VIP', destinasi: 'Mekkah' },
+  { id: 2, url: '/images/hero-madinah.png', alt: 'Masjid Nabawi', tahun: '2024', kategori: 'Umroh VIP', destinasi: 'Madinah' },
+  { id: 3, url: '/images/gallery_turki.png', alt: 'Hagia Sophia Turki', tahun: '2023', kategori: 'Umroh Plus', destinasi: 'Turki' },
+  { id: 4, url: '/images/hero-umroh.png', alt: 'Al-Ula Saudi', tahun: '2024', kategori: 'Umroh Plus', destinasi: 'Al-Ula' },
+  { id: 5, url: '/images/gallery_dubai.png', alt: 'Dubai Skyline', tahun: '2022', kategori: 'Umroh Plus', destinasi: 'Dubai' },
   { id: 6, url: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Kheops-Pyramid.jpg', alt: 'Pyramids Egypt', tahun: '2023', kategori: 'Umroh Plus', destinasi: 'Mesir' },
-  { id: 7, url: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Dome_of_the_Rock_2018.jpg', alt: 'Al-Aqsa Mosque', tahun: '2024', kategori: 'Umroh Plus', destinasi: 'Aqsa' },
+  { id: 7, url: '/images/gallery_aqsa.png', alt: 'Al-Aqsa Mosque', tahun: '2024', kategori: 'Umroh Plus', destinasi: 'Aqsa' },
   { id: 8, url: '/images/hero-makkah.png', alt: 'Makkah Night View', tahun: '2023', kategori: 'Umroh VIP', destinasi: 'Mekkah' },
   { id: 9, url: '/images/hero-madinah.png', alt: 'Madinah Sunrise', tahun: '2022', kategori: 'Umroh VIP', destinasi: 'Madinah' },
   { id: 10, url: '/images/hero-umroh.png', alt: 'Luxury Islamic Interior', tahun: '2024', kategori: 'Umroh VIP', destinasi: 'Mekkah' },
-  { id: 11, url: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Mecca%2C_Saudi_Arabia.jpg', alt: 'Mecca City Overview', tahun: '2022', kategori: 'Umroh VIP', destinasi: 'Mekkah' },
-  { id: 12, url: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Al_Masjid_an_Nabawi_-_2015.jpg', alt: 'Masjid Nabawi Courtyard', tahun: '2023', kategori: 'Umroh VIP', destinasi: 'Madinah' }
+  { id: 11, url: '/images/hero-makkah.png', alt: 'Mecca City Overview', tahun: '2022', kategori: 'Umroh VIP', destinasi: 'Mekkah' },
+  { id: 12, url: '/images/hero-madinah.png', alt: 'Masjid Nabawi Courtyard', tahun: '2023', kategori: 'Umroh VIP', destinasi: 'Madinah' }
 ];
 
 export default function GalleryFilter() {
@@ -32,8 +32,8 @@ export default function GalleryFilter() {
     });
   }, [activeTahun, activeKategori, activeDestinasi]);
 
-  const activeBtnClass = "px-6 py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md transition-all duration-300 transform scale-105 shadow-[0_0_15px_rgba(212,175,55,0.4)]";
-  const inactiveBtnClass = "px-6 py-2 rounded-lg border border-primary-container/30 text-primary-container font-label-md text-label-md hover:bg-primary/10 transition-all duration-300";
+  const activeBtnClass = "cursor-pointer px-6 py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md transition-all duration-300 transform scale-105 shadow-[0_0_15px_rgba(212,175,55,0.4)]";
+  const inactiveBtnClass = "cursor-pointer px-6 py-2 rounded-lg border border-primary-container/30 text-primary-container font-label-md text-label-md hover:bg-primary/10 transition-all duration-300";
 
   return (
     <div className="w-full">

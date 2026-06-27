@@ -6,6 +6,8 @@ import TestimonialSlider from "@/components/TestimonialSlider";
 import HeroSlider from "@/components/HeroSlider";
 import GalleryFilter from "@/components/GalleryFilter";
 import WeatherClockBar from "@/components/WeatherClockBar";
+import ScrollReveal from "@/components/ScrollReveal";
+import ArticleSection from "@/components/ArticleSection";
 import { Plane, Building2, ShieldCheck } from 'lucide-react';
 
 export default function Home() {
@@ -46,6 +48,7 @@ export default function Home() {
 <main className="flex-grow pt-[112px]">
 <HeroSlider />
 {/* Trust Bar */}
+<ScrollReveal>
 <section className="bg-surface-container-low py-8 border-y border-outline-variant/20">
 <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <p className="text-center font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-6">Mitra Resmi &amp; Maskapai Terpercaya</p>
@@ -58,10 +61,13 @@ export default function Home() {
 </div>
 </div>
 </section>
-{/* Package Cards */}
-<section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-background text-on-surface" id="paket-umrah">
+</ScrollReveal>
+{/* Mengapa Memilih Kami? */}
+<ScrollReveal direction="up">
+<section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-[#f9f9f9] text-on-surface" id="mengapa-kami">
 <div className="max-w-container-max mx-auto">
 {/* BEGIN: Section Header */}
+<ScrollReveal direction="up" delay={0.1}>
 <div className="text-center mb-16 flex flex-col items-center">
 <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary-container mb-6 relative inline-block">
         Pilihan Paket Umrah
@@ -70,6 +76,7 @@ export default function Home() {
         Berikut adalah daftar produk &amp; layanan yang kami sediakan untuk para kaum muslimin diseluruh Indonesia khususnya jamaah haji &amp; umrah
       </p>
 </div>
+</ScrollReveal>
 {/* END: Section Header */}
 {/* BEGIN: Packages Grid */}
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
@@ -347,10 +354,10 @@ export default function Home() {
 {/* Right: Content */}
 <div className="w-full md:w-7/12 flex flex-col">
 <h2 className="font-headline-lg text-[32px] md:text-[40px] font-bold text-[#1b1b1b] mb-4">
-            Atur sendiri jadwal Umroh sesuai keinginanmu
+            Rancang Perjalanan Umroh Eksklusif Impian Anda
         </h2>
 <p className="font-body-md text-[16px] text-[#47464a] mb-8 leading-relaxed">
-            Layanan umroh mandiri (FIT) dapat memberikan Pengalaman umroh lebih nyaman serta eksklusif bersama keluarga tercinta. Dengan layanan umroh mandiri anda bisa menentukan waktu umroh, pesawat, hotel dan jadwal umroh
+            Nikmati fleksibilitas tanpa batas dengan layanan Umroh Mandiri (FIT) eksklusif dari Talita Umroh. Ciptakan momen ibadah yang lebih intim, nyaman, dan berkesan bersama keluarga tercinta dengan kebebasan penuh dalam mengatur waktu, maskapai, akomodasi, hingga rute perjalanan ibadah Anda.
         </p>
 <div className="mb-8">
 <button className="bg-[#D4AF37] text-white font-label-md text-label-md py-3 px-8 rounded-lg hover:bg-[#c39b26] transition-all duration-300">
@@ -365,8 +372,8 @@ export default function Home() {
 <span className="material-symbols-outlined text-[#1b1b1b]" data-icon="schedule">schedule</span>
 </div>
 <div>
-<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Waktu yg Flexible</h4>
-<p className="font-body-md text-[14px] text-[#47464a]">Pilih tanggal berangkat dan pulang</p>
+<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Waktu Keberangkatan Fleksibel</h4>
+<p className="font-body-md text-[14px] text-[#47464a]">Bebas tentukan tanggal pergi dan pulang sesuai agenda Anda.</p>
 </div>
 </div>
 {/* Feature 2 */}
@@ -375,8 +382,8 @@ export default function Home() {
 <span className="material-symbols-outlined text-[#1b1b1b]" data-icon="hotel">hotel</span>
 </div>
 <div>
-<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Nyaman &amp; Aman</h4>
-<p className="font-body-md text-[14px] text-[#47464a]">Pilih hotel dan pesawat sesuai keinginan</p>
+<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Akomodasi Premium Pilihan</h4>
+<p className="font-body-md text-[14px] text-[#47464a]">Pilih sendiri hotel bintang lima dan maskapai kelas dunia.</p>
 </div>
 </div>
 {/* Feature 3 */}
@@ -385,8 +392,8 @@ export default function Home() {
 <span className="material-symbols-outlined text-[#1b1b1b]" data-icon="person">person</span>
 </div>
 <div>
-<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Umroh Sepuasnya</h4>
-<p className="font-body-md text-[14px] text-[#47464a]">Tentukan jumlah umroh sendiri</p>
+<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Ibadah Tanpa Batasan Waktu</h4>
+<p className="font-body-md text-[14px] text-[#47464a]">Keleluasaan menentukan durasi ibadah selama di Tanah Suci.</p>
 </div>
 </div>
 {/* Feature 4 */}
@@ -395,8 +402,8 @@ export default function Home() {
 <span className="material-symbols-outlined text-[#1b1b1b]" data-icon="map">map</span>
 </div>
 <div>
-<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Destinasi Tujuan</h4>
-<p className="font-body-md text-[14px] text-[#47464a]">Atur destinasi tujuan sendiri</p>
+<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Eksplorasi Rute Pribadi</h4>
+<p className="font-body-md text-[14px] text-[#47464a]">Tambahkan destinasi wisata religi ekstra sesuka hati.</p>
 </div>
 </div>
 {/* Feature 5 */}
@@ -405,8 +412,8 @@ export default function Home() {
 <span className="material-symbols-outlined text-[#1b1b1b]" data-icon="assignment">assignment</span>
 </div>
 <div>
-<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Sesuai dengan Kebutuhan</h4>
-<p className="font-body-md text-[14px] text-[#47464a]">Tentukan jumlah hari sendiri</p>
+<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Personalisasi Durasi Perjalanan</h4>
+<p className="font-body-md text-[14px] text-[#47464a]">Rancang panjang perjalanan ibadah yang paling ideal.</p>
 </div>
 </div>
 {/* Feature 6 */}
@@ -415,15 +422,17 @@ export default function Home() {
 <span className="material-symbols-outlined text-[#1b1b1b]" data-icon="star">star</span>
 </div>
 <div>
-<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Lebih Eksklusif</h4>
-<p className="font-body-md text-[14px] text-[#47464a]">Pilih fasilitas yang menarik</p>
+<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Fasilitas VIP Menyeluruh</h4>
+<p className="font-body-md text-[14px] text-[#47464a]">Dapatkan pelayanan khusus hingga muthawif pribadi.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
+</ScrollReveal>
 {/* Testimonials Section */}
+<ScrollReveal direction="up" delay={0.2}>
 <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-background text-on-surface overflow-hidden">
 <div className="max-w-container-max mx-auto">
 <div className="text-center mb-16">
@@ -433,8 +442,10 @@ export default function Home() {
 <TestimonialSlider />
 </div>
 </section>
+</ScrollReveal>
 </main>
-{/* Footer */}
+{/* Galeri */}
+<ScrollReveal direction="up">
 <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-background text-on-surface" id="galeri-perjalanan">
 <div className="max-w-container-max mx-auto">
 {/* Section Header */}
@@ -452,6 +463,10 @@ export default function Home() {
 </div>
 </div>
 </section>
+</ScrollReveal>
+
+<ArticleSection />
+
 <footer className="bg-surface-container-lowest text-on-surface w-full py-section-gap border-t border-primary/30 mt-auto">
 <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
 {/* Column 1: Logo &amp; Bio */}
