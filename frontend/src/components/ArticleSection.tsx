@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import ScrollReveal from './ScrollReveal';
 import { Calendar, ChevronRight, User } from 'lucide-react';
 import Link from 'next/link';
@@ -65,11 +66,11 @@ export default function ArticleSection() {
                   <div className="absolute top-4 left-4 z-10 bg-primary text-on-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
                     {article.category}
                   </div>
-                  <img 
+                  <Image 
                     src={article.image} 
                     alt={article.title} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+                  fill sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent opacity-80"></div>
                 </div>
 

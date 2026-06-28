@@ -10,7 +10,7 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
   // Dummy Data for demonstration
   const pkg = {
     id: resolvedParams.id,
-    title: "15 JULI 2026 | GOLD (VIP)",
+    title: "15 JULI 2026 | VIP",
     status: "Tersedia",
     seatsLeft: 14,
     duration: "9 Hari",
@@ -175,7 +175,7 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
             </div>
 
             <a 
-              href="https://wa.me/6281234567890?text=Halo%20Talita%20Umroh,%20saya%20tertarik%20dengan%20Paket%2015%20Juli%202026%20GOLD" 
+              href="https://wa.me/6281234567890?text=Halo%20Talita%20Umroh,%20saya%20tertarik%20dengan%20Paket%2015%20Juli%202026%20VIP" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl transition-all duration-300 shadow-[0_5px_20px_rgba(37,211,102,0.3)] hover:-translate-y-1"

@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-/* eslint-disable @next/next/no-img-element */
 
 import Link from 'next/link';
+import Image from 'next/image';
 import TestimonialSlider from "@/components/TestimonialSlider";
 import HeroSlider from "@/components/HeroSlider";
 import GalleryFilter from "@/components/GalleryFilter";
@@ -29,10 +29,10 @@ export default function Home() {
 {/* Desktop Navigation Links */}
 <nav className="hidden md:flex items-center space-x-8">
 <a className="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md scale-95 duration-150 ease-in-out" href="#">Beranda</a>
-<a className="text-on-surface hover:text-primary transition-colors duration-300 font-label-md text-label-md hover:bg-primary/10 hover:text-primary-fixed px-2 py-1 rounded" href="#">Paket Umrah</a>
-<a className="text-on-surface hover:text-primary transition-colors duration-300 font-label-md text-label-md hover:bg-primary/10 hover:text-primary-fixed px-2 py-1 rounded" href="#">Haji Plus</a>
-<a className="text-on-surface hover:text-primary transition-colors duration-300 font-label-md text-label-md hover:bg-primary/10 hover:text-primary-fixed px-2 py-1 rounded" href="#">Tentang Kami</a>
-<a className="text-on-surface hover:text-primary transition-colors duration-300 font-label-md text-label-md hover:bg-primary/10 hover:text-primary-fixed px-2 py-1 rounded" href="#">Testimoni</a>
+<a className="text-on-surface hover:text-primary transition-colors duration-300 font-label-md text-label-md hover:bg-primary/10 hover:text-primary-fixed px-2 py-1 rounded" href="#paket">Paket Umrah</a>
+<a className="text-on-surface hover:text-primary transition-colors duration-300 font-label-md text-label-md hover:bg-primary/10 hover:text-primary-fixed px-2 py-1 rounded" href="#haji">Haji Plus</a>
+<a className="text-on-surface hover:text-primary transition-colors duration-300 font-label-md text-label-md hover:bg-primary/10 hover:text-primary-fixed px-2 py-1 rounded" href="#tentang">Tentang Kami</a>
+<a className="text-on-surface hover:text-primary transition-colors duration-300 font-label-md text-label-md hover:bg-primary/10 hover:text-primary-fixed px-2 py-1 rounded" href="#testimoni">Testimoni</a>
 </nav>
 {/* CTA &amp; Mobile Menu Toggle */}
 <div className="flex items-center gap-4">
@@ -46,6 +46,7 @@ export default function Home() {
 </div>
 </header>
 <main className="flex-grow pt-[112px]">
+<h1 className="sr-only">Talita Umroh - Biro Perjalanan Umroh Terpercaya dan Haji Plus</h1>
 <HeroSlider />
 {/* Trust Bar */}
 <ScrollReveal>
@@ -64,8 +65,8 @@ export default function Home() {
 </ScrollReveal>
 {/* Mengapa Memilih Kami? */}
 <ScrollReveal direction="up">
-<section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-[#FFF8ED] text-on-surface relative overflow-hidden" id="mengapa-kami">
-<div className="absolute inset-0 bg-[url('/images/pattern.png')] bg-repeat bg-[length:300px_300px] opacity-10 pointer-events-none"></div>
+<section id="paket" className="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface text-on-surface relative overflow-hidden">
+<Image src="/images/pattern.png" alt="" fill className="object-cover opacity-10 pointer-events-none" sizes="100vw" priority={false} />
 <div className="max-w-container-max mx-auto relative z-10">
 {/* BEGIN: Section Header */}
 <ScrollReveal direction="up" delay={0.1}>
@@ -74,7 +75,7 @@ export default function Home() {
         Pilihan Paket Umrah
       </h2>
 <p className="font-body-md text-body-md text-on-surface-variant max-w-3xl mx-auto leading-relaxed">
-        Berikut adalah daftar produk &amp; layanan yang kami sediakan untuk para kaum muslimin diseluruh Indonesia khususnya jamaah haji &amp; umrah
+        Pilihan paket perjalanan umrah eksklusif dengan fasilitas premium untuk kelancaran ibadah Anda.
       </p>
 </div>
 </ScrollReveal>
@@ -89,11 +90,11 @@ export default function Home() {
 </div>
 {/* Card Image Placeholder */}
 <div className="h-48 bg-surface-bright relative overflow-hidden">
-<img alt="Umroh Bronze Package Cover" className="w-full h-full object-cover opacity-50 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+<Image alt="Umroh Bronze Package Cover" className="w-full h-full object-cover opacity-50 grayscale" src="/images/hero-makkah.png" fill sizes="(max-width: 768px) 100vw, 50vw" />
 </div>
 {/* Card Content */}
 <div className="p-6 flex-1 flex flex-col relative z-0">
-<h3 className="text-primary-container font-headline-md text-[18px] font-bold mb-4 border-b border-outline-variant pb-2">02 JULI 2026 | BRONZE</h3>
+<h3 className="text-primary-container font-headline-md text-[18px] font-bold mb-4 border-b border-outline-variant pb-2">02 JULI 2026 | REGULER</h3>
 <ul className="space-y-3 font-body-md text-[14px] text-on-surface-variant mb-6 flex-1">
 <li className="flex items-start gap-3">
 <span className="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="calendar_today">calendar_today</span>
@@ -138,12 +139,12 @@ export default function Home() {
 <article className="bg-surface-container-low rounded-xl overflow-hidden shadow-lg border border-outline-variant flex flex-col group transition-transform duration-300 hover:-translate-y-2 hover:border-primary-container/50">
 {/* Card Image Placeholder */}
 <div className="h-48 bg-surface-bright relative overflow-hidden">
-<img alt="Umroh Gold Package Cover" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq0XKc3oe16S73DlMXVsNitwU1gjcVaOmZb8MMsOqwSAxMrn5YtE0uvpvzy4BPd1_xEToeWWr75U7iK93LwV4ic_1OX78oB6VwLymwJt8GCPAxSkqgSXyoblRISyXIWJ3xDx_xeJVAnDte_zWPP368zsAAZ1saiJd8PpHPSNn_0Q7fr8cPPHHEQMD42vl84UKA00Lbx1eJcEippobMw_Eb2PGZHeViB_9nkLVqX9B7eCgMfySOi2D38qPmtcdWvklOF8blvMrOC0I"/>
+<Image alt="Umroh Gold Package Cover" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="/images/hero-madinah.png" fill sizes="(max-width: 768px) 100vw, 50vw" />
 <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
 </div>
 {/* Card Content */}
 <div className="p-6 flex-1 flex flex-col">
-<h3 className="text-primary-container font-headline-md text-[18px] font-bold mb-4 border-b border-outline-variant pb-2">15 JULI 2026 | GOLD</h3>
+<h3 className="text-primary-container font-headline-md text-[18px] font-bold mb-4 border-b border-outline-variant pb-2">15 JULI 2026 | VIP</h3>
 <ul className="space-y-3 font-body-md text-[14px] text-on-surface-variant mb-6 flex-1">
 <li className="flex items-start gap-3">
 <span className="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="calendar_today">calendar_today</span>
@@ -188,12 +189,12 @@ export default function Home() {
 <article className="bg-surface-container-low rounded-xl overflow-hidden shadow-lg border border-outline-variant flex flex-col group transition-transform duration-300 hover:-translate-y-2 hover:border-primary-container/50">
 {/* Card Image Placeholder */}
 <div className="h-48 bg-surface-bright relative overflow-hidden">
-<img alt="Umroh Bronze Package Cover" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKTs0Zqptxbv9y3IV6Evz3KDjLK-l9W6NWeMJz4Ejv4qTTdPjulDWfef6rBU4WtYpqzoNHKTemPOTrqHWNlSW7ON5QFj394bnyrQKISasvAALQKRQpZIMn9KtseSrVVEp0hrW-ECsEOwSLb_269x63ACL5A6HJ6GLLnYO3plkghP8eVcz6dGX7lDyVgURM9FtzC_dp98ATiS-J6CfU_aH4GnyOh0yFYT2TI1ESzFWDdVih40kZSS7GJMk88S7jzfbSL1mg_JBJxE8"/>
+<Image alt="Umroh Bronze Package Cover" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="/images/hero-umroh.png" fill sizes="(max-width: 768px) 100vw, 50vw" />
 <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
 </div>
 {/* Card Content */}
 <div className="p-6 flex-1 flex flex-col">
-<h3 className="text-primary-container font-headline-md text-[18px] font-bold mb-4 border-b border-outline-variant pb-2">30 JULI 2026 | BRONZE</h3>
+<h3 className="text-primary-container font-headline-md text-[18px] font-bold mb-4 border-b border-outline-variant pb-2">30 JULI 2026 | REGULER</h3>
 <ul className="space-y-3 font-body-md text-[14px] text-on-surface-variant mb-6 flex-1">
 <li className="flex items-start gap-3">
 <span className="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="calendar_today">calendar_today</span>
@@ -238,12 +239,12 @@ export default function Home() {
 <article className="bg-surface-container-low rounded-xl overflow-hidden shadow-lg border border-outline-variant flex flex-col group transition-transform duration-300 hover:-translate-y-2 hover:border-primary-container/50">
 {/* Card Image Placeholder */}
 <div className="h-48 bg-surface-bright relative overflow-hidden">
-<img alt="Umroh Bronze Package Cover" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrh7ulYSXe5HPP3WvQ4KMEmSjZFP2EFTVR-Bzb3uRR4olj3-LtlyiXgPTeKkpK96iEaoj5kmY5NiLctDGK7HbRkUA5Kzt5DwsCAL0ZqK1VXBbhq4of73h0NbEjOh1CGXNmEWn_Btt6C6cQpXqvWSyoDzl7BKgEJt2Oe0cLt4f-7aVpjMhu6avcD9piaexpoGSMtM0L-oPH_hnJecy8ZThf7a3Te-SCvMKqW8aAo8RZAy20CbdWuXyY2wY4vHEiOraeAezYCE3zBt0"/>
+<Image alt="Umroh Bronze Package Cover" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="/images/family_ihram_premium.png" fill sizes="(max-width: 768px) 100vw, 50vw" />
 <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
 </div>
 {/* Card Content */}
 <div className="p-6 flex-1 flex flex-col">
-<h3 className="text-primary-container font-headline-md text-[18px] font-bold mb-4 border-b border-outline-variant pb-2">03 AGUSTUS 2026 | BRONZE</h3>
+<h3 className="text-primary-container font-headline-md text-[18px] font-bold mb-4 border-b border-outline-variant pb-2">03 AGUSTUS 2026 | REGULER</h3>
 <ul className="space-y-3 font-body-md text-[14px] text-on-surface-variant mb-6 flex-1">
 <li className="flex items-start gap-3">
 <span className="material-symbols-outlined text-[20px] shrink-0 text-primary-container" data-icon="calendar_today">calendar_today</span>
@@ -289,7 +290,7 @@ export default function Home() {
 </div>
 </section>
 {/* FIT Package Section */}
-<section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-background text-on-surface">
+<section id="tentang" className="py-section-gap px-margin-mobile md:px-margin-desktop bg-background text-on-surface">
 <div className="max-w-container-max mx-auto">
 <div className="text-center mb-16 flex flex-col items-center">
 <span className="font-label-md text-label-md text-white uppercase tracking-widest mb-2">Kualitas &amp; Kepercayaan</span>
@@ -298,7 +299,7 @@ export default function Home() {
 <div className="grid grid-cols-1 md:grid-cols-3 gap-y-16 gap-x-gutter">
 <div className="flex flex-col items-center text-center">
 <div className="w-32 h-32 mb-6 relative flex items-center justify-center"><div className="absolute inset-0 rounded-full bg-[#D4AF37]/10 blur-2xl"></div>
-<img alt="Official Badge" className="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+<Image alt="Official Badge" className="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8" fill sizes="(max-width: 768px) 100vw, 50vw" />
 <span className="material-symbols-outlined absolute text-primary-container text-[40px]" data-icon="verified">verified</span>
 </div>
 <h3 className="font-headline-md text-[20px] text-white mb-3">Biro Haji Umroh Resmi</h3>
@@ -306,23 +307,23 @@ export default function Home() {
 </div>
 <div className="flex flex-col items-center text-center">
 <div className="w-32 h-32 mb-6 relative flex items-center justify-center"><div className="absolute inset-0 flex items-center justify-center opacity-20"><div className="w-24 h-24 border border-[#D4AF37] rounded-full"></div><div className="absolute w-16 h-16 border border-[#D4AF37] rounded-full"></div></div>
-<img alt="Accreditation Badge" className="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+<Image alt="Accreditation Badge" className="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8" fill sizes="(max-width: 768px) 100vw, 50vw" />
 <span className="material-symbols-outlined absolute text-primary-container text-[40px]" data-icon="workspace_premium">workspace_premium</span>
 </div>
 <h3 className="font-headline-md text-[20px] text-white mb-3">Akreditasi A</h3>
-<p className="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Memiliki Akreditasi Baik Sekali sebagai bukti komitmen kami dalam memberikan pelayanan profesional dan berkualitas.</p>
+<p className="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Terakreditasi 'Sangat Baik' (A) secara resmi oleh Kementerian Agama sebagai bukti pelayanan profesional.</p>
 </div>
 <div className="flex flex-col items-center text-center">
 <div className="w-32 h-32 mb-6 relative flex items-center justify-center"><div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#D4AF37_0%,_transparent_70%)] scale-150 rotate-45"></div>
-<img alt="Best Operator Badge" className="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+<Image alt="Best Operator Badge" className="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8" fill sizes="(max-width: 768px) 100vw, 50vw" />
 <span className="material-symbols-outlined absolute text-primary-container text-[40px]" data-icon="military_tech">military_tech</span>
 </div>
 <h3 className="font-headline-md text-[20px] text-white mb-3">Operator Umroh Terbaik</h3>
-<p className="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Salah satu penyelenggara dengan predikat operator terbaik dalam kompetisi pariwisata Halal Nasional.</p>
+<p className="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Salah satu penyelenggara dengan predikat operator terbaik dalam Ajang Pariwisata Halal Nasional 2023.</p>
 </div>
 <div className="flex flex-col items-center text-center">
 <div className="w-32 h-32 mb-6 relative flex items-center justify-center"><div className="absolute inset-0 bg-gradient-to-b from-[#D4AF37]/20 to-transparent rounded-t-full"></div>
-<img alt="Manasik Badge" className="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+<Image alt="Manasik Badge" className="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8" fill sizes="(max-width: 768px) 100vw, 50vw" />
 <span className="material-symbols-outlined absolute text-primary-container text-[40px]" data-icon="school">school</span>
 </div>
 <h3 className="font-headline-md text-[20px] text-white mb-3">Sekolah Manasik</h3>
@@ -330,7 +331,7 @@ export default function Home() {
 </div>
 <div className="flex flex-col items-center text-center">
 <div className="w-32 h-32 mb-6 relative flex items-center justify-center"><div className="absolute inset-0 opacity-10" style={{"backgroundImage":"radial-gradient(#D4AF37 0.5px, transparent 0.5px)","backgroundSize":"8px 8px"}}></div>
-<img alt="Handling Badge" className="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+<Image alt="Handling Badge" className="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8" fill sizes="(max-width: 768px) 100vw, 50vw" />
 <span className="material-symbols-outlined absolute text-primary-container text-[40px]" data-icon="groups">groups</span>
 </div>
 <h3 className="font-headline-md text-[20px] text-white mb-3">Tim Handling Profesional</h3>
@@ -338,7 +339,7 @@ export default function Home() {
 </div>
 <div className="flex flex-col items-center text-center">
 <div className="w-32 h-32 mb-6 relative flex items-center justify-center"><div className="absolute inset-0 flex flex-col justify-center gap-2 opacity-20"><div className="h-px w-full bg-[#D4AF37]"></div><div className="h-px w-3/4 bg-[#D4AF37] mx-auto"></div><div className="h-px w-full bg-[#D4AF37]"></div></div>
-<img alt="Departure Badge" className="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8"/>
+<Image alt="Departure Badge" className="w-full h-full object-contain filter sepia brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzKmmfwMn_m0S0QlDOXUwx7R8jPMrlCyGaq7PLmfQE1wvCqQVsG3BUFYxQEzjTWwKWa3LKa_wyypIBooR_-duJn-LGxP8rYzHHVhI50S_l2iYl0aGiGEbdrvGI3mitOBpkdLMuBqZZxUjPsyb_HkN4s_clFuog9BhsfIfth0lStGI69rG2415sTSMzgqfDfvOfirOCi6i28EoWHQXwv5sOYxSauh7CmoMCzvPtmhWCAZdqsrdI6yIHULHNWOMZ4z-kH4-BO6y9p8" fill sizes="(max-width: 768px) 100vw, 50vw" />
 <span className="material-symbols-outlined absolute text-primary-container text-[40px]" data-icon="flight_takeoff">flight_takeoff</span>
 </div>
 <h3 className="font-headline-md text-[20px] text-white mb-3">Pasti Berangkat</h3>
@@ -346,11 +347,17 @@ export default function Home() {
 </div>
 </div>
 </div>
-</section><section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-[#FFF8ED]">
-<div className="max-w-container-max mx-auto flex flex-col md:flex-row items-center gap-12">
+</section>
+<section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-[#FFF8ED] relative overflow-hidden">
+{/* Decorative Background Elements */}
+<div className="absolute inset-0 pointer-events-none z-0"><Image src="/images/islamic_bg_pattern.png" alt="" fill className="object-cover opacity-30 mix-blend-multiply" sizes="100vw" priority={false} /></div>
+<div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37]/20 rounded-full blur-[120px] pointer-events-none -translate-y-1/3 translate-x-1/3"></div>
+<div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#D4AF37]/20 rounded-full blur-[120px] pointer-events-none translate-y-1/3 -translate-x-1/3"></div>
+
+<div className="max-w-container-max mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
 {/* Left: Image */}
 <div className="w-full md:w-5/12 flex justify-center">
-<img alt="Family in Ihram" className="w-full h-auto object-cover rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrh7ulYSXe5HPP3WvQ4KMEmSjZFP2EFTVR-Bzb3uRR4olj3-LtlyiXgPTeKkpK96iEaoj5kmY5NiLctDGK7HbRkUA5Kzt5DwsCAL0ZqK1VXBbhq4of73h0NbEjOh1CGXNmEWn_Btt6C6cQpXqvWSyoDzl7BKgEJt2Oe0cLt4f-7aVpjMhu6avcD9piaexpoGSMtM0L-oPH_hnJecy8ZThf7a3Te-SCvMKqW8aAo8RZAy20CbdWuXyY2wY4vHEiOraeAezYCE3zBt0"/>
+<Image alt="Family in Ihram" className="w-full h-auto object-cover rounded-2xl shadow-[0_20px_50px_rgba(212,175,55,0.15)] ring-1 ring-primary/20" src="/images/family_ihram_premium.png" width={600} height={400} />
 </div>
 {/* Right: Content */}
 <div className="w-full md:w-7/12 flex flex-col">
@@ -373,8 +380,8 @@ export default function Home() {
 <span className="material-symbols-outlined text-[#1b1b1b]" data-icon="schedule">schedule</span>
 </div>
 <div>
-<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Waktu Keberangkatan Fleksibel</h4>
-<p className="font-body-md text-[14px] text-[#47464a]">Bebas tentukan tanggal pergi dan pulang sesuai agenda Anda.</p>
+<h3 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Kebebasan Mengatur Jadwal</h3>
+<p className="font-body-md text-[14px] text-[#47464a]">Tentukan sendiri tanggal pergi, durasi, dan rute sesuai agenda Anda.</p>
 </div>
 </div>
 {/* Feature 2 */}
@@ -383,8 +390,8 @@ export default function Home() {
 <span className="material-symbols-outlined text-[#1b1b1b]" data-icon="hotel">hotel</span>
 </div>
 <div>
-<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Akomodasi Premium Pilihan</h4>
-<p className="font-body-md text-[14px] text-[#47464a]">Pilih sendiri hotel bintang lima dan maskapai kelas dunia.</p>
+<h3 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Hotel Ring 1 Terjamin</h3>
+<p className="font-body-md text-[14px] text-[#47464a]">Akses instan ke Masjidil Haram & Nabawi tanpa membuang waktu.</p>
 </div>
 </div>
 {/* Feature 3 */}
@@ -393,38 +400,18 @@ export default function Home() {
 <span className="material-symbols-outlined text-[#1b1b1b]" data-icon="person">person</span>
 </div>
 <div>
-<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Ibadah Tanpa Batasan Waktu</h4>
-<p className="font-body-md text-[14px] text-[#47464a]">Keleluasaan menentukan durasi ibadah selama di Tanah Suci.</p>
+<h3 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Muthawif Pribadi Berpengalaman</h3>
+<p className="font-body-md text-[14px] text-[#47464a]">Pendamping ibadah eksklusif hanya untuk Anda dan keluarga.</p>
 </div>
 </div>
 {/* Feature 4 */}
 <div className="flex items-start gap-4">
 <div className="bg-white p-2 rounded-lg shadow-sm flex-shrink-0">
-<span className="material-symbols-outlined text-[#1b1b1b]" data-icon="map">map</span>
-</div>
-<div>
-<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Eksplorasi Rute Pribadi</h4>
-<p className="font-body-md text-[14px] text-[#47464a]">Tambahkan destinasi wisata religi ekstra sesuka hati.</p>
-</div>
-</div>
-{/* Feature 5 */}
-<div className="flex items-start gap-4">
-<div className="bg-white p-2 rounded-lg shadow-sm flex-shrink-0">
-<span className="material-symbols-outlined text-[#1b1b1b]" data-icon="assignment">assignment</span>
-</div>
-<div>
-<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Personalisasi Durasi Perjalanan</h4>
-<p className="font-body-md text-[14px] text-[#47464a]">Rancang panjang perjalanan ibadah yang paling ideal.</p>
-</div>
-</div>
-{/* Feature 6 */}
-<div className="flex items-start gap-4">
-<div className="bg-white p-2 rounded-lg shadow-sm flex-shrink-0">
 <span className="material-symbols-outlined text-[#1b1b1b]" data-icon="star">star</span>
 </div>
 <div>
-<h4 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Fasilitas VIP Menyeluruh</h4>
-<p className="font-body-md text-[14px] text-[#47464a]">Dapatkan pelayanan khusus hingga muthawif pribadi.</p>
+<h3 className="font-headline-md text-[16px] font-bold text-[#1b1b1b]">Fasilitas VIP Menyeluruh</h3>
+<p className="font-body-md text-[14px] text-[#47464a]">Dapatkan pelayanan khusus dan prioritas maskapai kelas dunia.</p>
 </div>
 </div>
 </div>
@@ -434,7 +421,7 @@ export default function Home() {
 </ScrollReveal>
 {/* Testimonials Section */}
 <ScrollReveal direction="up" delay={0.2}>
-<section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-background text-on-surface overflow-hidden">
+<section id="testimoni" className="py-section-gap px-margin-mobile md:px-margin-desktop bg-background text-on-surface overflow-hidden">
 <div className="max-w-container-max mx-auto">
 <div className="text-center mb-16">
 <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-[#D4AF37] mb-6">Apa Kata Mereka</h2>
@@ -481,10 +468,10 @@ export default function Home() {
 </div>
 {/* Column 2: Quick Links */}
 <div>
-<h4 className="font-headline-md text-[20px] mb-6 text-on-surface">Tautan Cepat</h4>
+<h3 className="font-headline-md text-[20px] mb-6 text-on-surface">Tautan Cepat</h3>
 <ul className="flex flex-col gap-3">
-<li><a className="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline focus:ring-2 focus:ring-primary/50 transition-all" href="#">Paket VIP</a></li>
-<li><a className="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline focus:ring-2 focus:ring-primary/50 transition-all" href="#">Paket Ekonomi</a></li>
+<li><a className="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline focus:ring-2 focus:ring-primary/50 transition-all" href="#paket">Paket Reguler</a></li>
+<li><a className="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline focus:ring-2 focus:ring-primary/50 transition-all" href="#paket">Paket VIP</a></li>
 <li><a className="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline focus:ring-2 focus:ring-primary/50 transition-all" href="#">Jadwal Keberangkatan</a></li>
 <li><a className="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline focus:ring-2 focus:ring-primary/50 transition-all" href="#">Persyaratan Visa</a></li>
 <li><a className="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline focus:ring-2 focus:ring-primary/50 transition-all" href="#">Pusat Bantuan</a></li>
@@ -492,7 +479,7 @@ export default function Home() {
 </div>
 {/* Column 3: Contact Info */}
 <div>
-<h4 className="font-headline-md text-[20px] mb-6 text-on-surface">Hubungi Kami</h4>
+<h3 className="font-headline-md text-[20px] mb-6 text-on-surface">Hubungi Kami</h3>
 <ul className="flex flex-col gap-4">
 <li className="flex items-start gap-3 text-on-surface-variant hover:text-primary transition-colors">
 <span className="material-symbols-outlined text-primary" data-icon="phone_in_talk">phone_in_talk</span>
@@ -510,7 +497,7 @@ export default function Home() {
 </div>
 {/* Column 4: Newsletter */}
 <div>
-<h4 className="font-headline-md text-[20px] mb-6 text-on-surface">Berlangganan Info</h4>
+<h3 className="font-headline-md text-[20px] mb-6 text-on-surface">Berlangganan Info</h3>
 <p className="font-body-md text-body-md text-on-surface-variant mb-4">
                     Dapatkan info promo dan jadwal keberangkatan terbaru.
                 </p>

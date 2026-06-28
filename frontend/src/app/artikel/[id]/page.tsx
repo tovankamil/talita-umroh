@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, User, ChevronLeft, Share2, Link as LinkIcon, MessageCircle } from 'lucide-react';
 import WeatherClockBar from "@/components/WeatherClockBar";
@@ -68,11 +69,11 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
 
         {/* Article Image */}
         <div className="w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden mb-12 shadow-lg relative">
-          <img 
+          <Image 
             src={article.image} 
             alt={article.title} 
             className="w-full h-full object-cover"
-          />
+          fill />
         </div>
 
         {/* Article Body */}

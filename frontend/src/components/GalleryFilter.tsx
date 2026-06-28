@@ -98,11 +98,11 @@ export default function GalleryFilter() {
                 <span className="text-primary font-bold text-sm tracking-wider">{img.destinasi}</span>
                 <span className="text-white text-xs">{img.tahun} - {img.kategori}</span>
               </div>
-              <img 
+              <Image 
                 alt={img.alt} 
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" 
                 src={img.url}
-              />
+              fill sizes="(max-width: 768px) 100vw, 33vw" />
             </div>
           ))}
         </div>

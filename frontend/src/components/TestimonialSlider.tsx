@@ -8,31 +8,31 @@ const testimonials = [
   {
     text: "Pelayanan sangat profesional. Hotel di Makkah sangat dekat dengan Masjidil Haram. Terima kasih Talita Umroh.",
     initial: "A",
-    name: "Ahmad Fauzi",
-    role: "Jamaah Umrah 2024"
+    name: "Bpk. H. Ahmad Fauzi",
+    role: "Jamaah Paket VIP 2024"
   },
   {
     text: "Pembimbing ibadahnya sangat sabar dan detail menjelaskan setiap rukun umroh. Sangat merekomendasikan paket VIP.",
     initial: "S",
-    name: "Siti Aminah",
-    role: "Jamaah Umrah 2024"
+    name: "Ibu Hj. Siti Aminah",
+    role: "Jamaah Paket Reguler 2024"
   },
   {
     text: "Alhamdulillah perjalanan lancar dari berangkat sampai pulang. Makanan selera nusantara tersedia setiap hari.",
     initial: "B",
-    name: "Budi Santoso",
-    role: "Jamaah Umrah 2024"
+    name: "Bpk. H. Budi Santoso",
+    role: "Jamaah Paket Reguler 2024"
   },
   {
-    text: "Fasilitas yang diberikan sesuai dengan brosur. Harga terjangkau dengan pelayanan VIP kelas atas.",
+    text: "Pelayanan yang sangat amanah. Fasilitas yang dijanjikan 100% terbukti nyata, membuat keluarga kami bisa fokus beribadah dengan tenang.",
     initial: "R",
-    name: "Rina Marlina",
-    role: "Jamaah Umrah 2023"
+    name: "Ibu Hj. Rina Marlina",
+    role: "Jamaah Paket VIP 2023"
   },
   {
     text: "Tim handling bandara sangat sigap. Kami tidak perlu repot urus bagasi sama sekali. Luar biasa Talita Umroh!",
     initial: "H",
-    name: "Hendra Wijaya",
+    name: "Bpk. H. Hendra Wijaya",
     role: "Jamaah Haji Plus 2023"
   },
   {
@@ -111,7 +111,7 @@ export default function TestimonialSlider() {
                 {item.initial}
               </div>
               <div>
-                <h4 className="font-headline-md text-[16px] text-white">{item.name}</h4>
+                <h3 className="font-headline-md text-[16px] text-white">{item.name}</h3>
                 <p className="font-label-sm text-on-surface-variant">{item.role}</p>
               </div>
             </div>
