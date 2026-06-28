@@ -8,6 +8,7 @@ import GalleryFilter from "@/components/GalleryFilter";
 import WeatherClockBar from "@/components/WeatherClockBar";
 import ScrollReveal from "@/components/ScrollReveal";
 import ArticleSection from "@/components/ArticleSection";
+import ChatbotWidget from "@/components/ChatbotWidget";
 import { Plane, Building2, ShieldCheck } from 'lucide-react';
 
 export default function Home() {
@@ -519,7 +520,7 @@ export default function Home() {
 </div>
 </footer>
 
-    
+    <ChatbotWidget />
     </div>
   );
 }

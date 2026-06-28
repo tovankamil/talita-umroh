@@ -35,10 +35,15 @@ func Migrate() {
 		&models.Gallery{},
 
 		// Settings entities
+		// Settings entities
 		&models.AgentRegSettings{},
 		&models.SiteSettings{},
 		&models.StaticPage{},
 		&models.AboutPage{},
+
+		// Chat System
+		&models.ChatSession{},
+		&models.ChatMessage{},
 	)
 
 	if err != nil {

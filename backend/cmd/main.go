@@ -32,6 +32,9 @@ func main() {
 	authService := services.NewAuthService(userRepo)
 	authHandler := handlers.NewAuthHandler(authService)
 
+	chatService := services.NewChatService(database.DB)
+	chatHandler := handlers.NewChatHandler(chatService)
+
 	// Setup Gin
 	if os.Getenv("APP_ENV") == "production" {
 		gin.SetMode(gin.ReleaseMode)
@@ -48,7 +51,7 @@ func main() {
 	}))
 
 	// Register all routes
-	routes.Register(r, authHandler)
+	routes.Register(r, authHandler, chatHandler)
 
 	port := os.Getenv("APP_PORT")
 	if port == "" {

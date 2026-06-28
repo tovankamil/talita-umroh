@@ -7,7 +7,7 @@ import (
 )
 
 // Register mendaftarkan semua rute API
-func Register(r *gin.Engine, authHandler *handlers.AuthHandler) {
+func Register(r *gin.Engine, authHandler *handlers.AuthHandler, chatHandler *handlers.ChatHandler) {
 	// Health check
 	r.GET("/health", func(c *gin.Context) {
 		c.JSON(200, gin.H{
@@ -18,6 +18,15 @@ func Register(r *gin.Engine, authHandler *handlers.AuthHandler) {
 
 	api := r.Group("/api/v1")
 	{
+		// ─────────────────────────────────────────
+		// Chat AI Routes (public)
+		// ─────────────────────────────────────────
+		chat := api.Group("/chat")
+		{
+			chat.POST("/start", chatHandler.StartSession)
+			chat.POST("/:session_id/message", chatHandler.SendMessage)
+		}
+
 		// ─────────────────────────────────────────
 		// Auth routes (public)
 		// ─────────────────────────────────────────
