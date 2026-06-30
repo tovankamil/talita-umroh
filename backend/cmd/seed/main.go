@@ -36,4 +36,20 @@ func main() {
 	log.Println("✅ Dummy Mitra (Agent) berhasil dibuat!")
 	log.Println("Email:", user.Email)
 	log.Println("Password: password123")
+
+	admin := models.User{
+		Name:     "Admin Talita",
+		Phone:    "08111111111",
+		Email:    "admin@talita.com",
+		Password: string(hashedPassword),
+		Role:     models.RoleAdmin,
+	}
+
+	if err := database.DB.Where("email = ?", admin.Email).FirstOrCreate(&admin).Error; err != nil {
+		log.Fatalf("Gagal membuat dummy admin: %v", err)
+	}
+
+	log.Println("✅ Dummy Admin berhasil dibuat!")
+	log.Println("Email:", admin.Email)
+	log.Println("Password: password123")
 }

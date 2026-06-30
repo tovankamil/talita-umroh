@@ -30,8 +30,8 @@ export default function CommissionsPage() {
       className="space-y-8"
     >
       <div>
-        <h1 className="text-3xl font-bold text-slate-800 mb-2">Pusat Komisi & Withdraw</h1>
-        <p className="text-slate-500 font-medium">Lacak saldo komisi Anda dan lakukan penarikan dana ke rekening Anda.</p>
+        <h1 className="text-3xl font-bold text-on-surface mb-2">Pusat Komisi & Withdraw</h1>
+        <p className="text-on-surface-variant font-medium">Lacak saldo komisi Anda dan lakukan penarikan dana ke rekening Anda.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -43,7 +43,7 @@ export default function CommissionsPage() {
             <p className="text-teal-100 font-medium mb-2">Saldo Komisi Tersedia</p>
             <h2 className="text-4xl font-bold mb-8">Rp 3.000.000</h2>
             
-            <button className="w-full bg-white text-teal-600 font-bold py-3 px-4 rounded-xl hover:bg-teal-50 transition shadow-lg flex items-center justify-center gap-2">
+            <button className="w-full bg-surface-container text-primary font-bold py-3 px-4 rounded-xl hover:bg-primary-container/20 transition shadow-lg flex items-center justify-center gap-2">
               <ArrowDownToLine className="w-5 h-5" />
               Tarik Saldo Sekarang
             </button>
@@ -53,29 +53,29 @@ export default function CommissionsPage() {
 
         <div className="md:col-span-2 dashboard-card-soft p-6">
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2">
+            <h3 className="text-lg font-bold text-on-surface flex items-center gap-2">
               <FileText className="w-5 h-5 text-blue-500" />
               Buku Besar (Ledger)
             </h3>
-            <button className="text-sm font-semibold text-teal-600 hover:text-teal-700 bg-teal-50 px-4 py-2 rounded-lg">
+            <button className="text-sm font-semibold text-primary hover:text-primary bg-primary-container/20 px-4 py-2 rounded-lg">
               Download Laporan
             </button>
           </div>
 
           <div className="space-y-4">
             {ledger.map((item, idx) => (
-              <div key={idx} className="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-xl hover:bg-white hover:shadow-sm transition-all">
+              <div key={idx} className="flex items-center justify-between p-4 bg-surface-container-high border border-outline-variant/30 rounded-xl hover:bg-surface-container hover:shadow-sm transition-all">
                 <div className="flex items-center gap-4">
                   <div className={`p-2.5 rounded-xl ${item.type === 'credit' ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'}`}>
                     {item.type === 'credit' ? <ArrowDownToLine className="w-5 h-5 rotate-180" /> : <ArrowDownToLine className="w-5 h-5" />}
                   </div>
                   <div>
-                    <p className="font-bold text-slate-800">{item.desc}</p>
-                    <p className="text-xs text-slate-400 font-medium mt-1">{item.date} • {item.id}</p>
+                    <p className="font-bold text-on-surface">{item.desc}</p>
+                    <p className="text-xs text-on-surface-variant font-medium mt-1">{item.date} • {item.id}</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className={`font-bold text-lg ${item.type === 'credit' ? 'text-emerald-600' : 'text-slate-800'}`}>
+                  <p className={`font-bold text-lg ${item.type === 'credit' ? 'text-emerald-600' : 'text-on-surface'}`}>
                     {item.amount}
                   </p>
                   <p className="text-xs mt-1">

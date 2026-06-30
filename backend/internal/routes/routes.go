@@ -87,6 +87,7 @@ func Register(r *gin.Engine, authHandler *handlers.AuthHandler, chatHandler *han
 			admin.GET("/agents/:id", handlers.GetAgent)
 
 			// Packages management
+			admin.GET("/packages", handlers.GetPackages)
 			admin.POST("/packages", handlers.CreatePackage)
 			admin.PUT("/packages/:id", handlers.UpdatePackage)
 			admin.DELETE("/packages/:id", handlers.DeletePackage)

@@ -1,6 +1,7 @@
 "use client";
 
 import { useAuthStore } from "@/store/authStore";
+import { useEffect, useState } from "react";
 import { 
   Users, 
   CreditCard, 
@@ -12,7 +13,9 @@ import {
   User,
   Activity,
   TrendingUp,
-  Award
+  Award,
+  RefreshCcw,
+  CheckCircle2
 } from "lucide-react";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
@@ -26,23 +29,55 @@ import {
   ResponsiveContainer
 } from "recharts";
 
-const chartData = [
-  { name: "Jan", jamaah: 4, komisi: 4000000 },
-  { name: "Feb", jamaah: 7, komisi: 7000000 },
-  { name: "Mar", jamaah: 5, komisi: 5000000 },
-  { name: "Apr", jamaah: 12, komisi: 12000000 },
-  { name: "Mei", jamaah: 9, komisi: 9000000 },
-  { name: "Jun", jamaah: 15, komisi: 15000000 },
-];
+import Cookies from 'js-cookie';
 
-export default function AgentDashboard() {
+export default function AdminDashboard() {
   const { user } = useAuthStore();
+  const [kpiData, setKpiData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchKPI = async () => {
+      try {
+        const token = Cookies.get('token');
+        const res = await fetch("http://localhost:8080/api/v1/admin/kpi", {
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
+        });
+        if (res.ok) {
+          const data = await res.json();
+          setKpiData(data);
+        } else {
+          const errorText = await res.text();
+          console.error("Failed to fetch KPI:", res.status, errorText);
+        }
+      } catch (error) {
+        console.error("Error fetching KPI:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchKPI();
+  }, []);
+
+  const defaultChartData = [
+    { name: "Jan", jamaah: 150 },
+    { name: "Feb", jamaah: 200 },
+    { name: "Mar", jamaah: 180 },
+    { name: "Apr", jamaah: 250 },
+    { name: "Mei", jamaah: 210 },
+    { name: "Jun", jamaah: 260 },
+  ];
+
+  const chartDataToUse = kpiData?.chart_data || defaultChartData;
 
   const stats = [
     {
       title: "Total Jamaah",
-      value: "12",
-      change: "+2 bulan ini",
+      value: kpiData?.total_jamaah || "0",
+      change: "+125 bulan ini",
       trend: "up",
       icon: Users,
       color: "from-sky-400 to-blue-500",
@@ -50,34 +85,34 @@ export default function AgentDashboard() {
       bgSoft: "bg-sky-500/20",
     },
     {
-      title: "Total Komisi",
-      value: "Rp 15 Juta",
-      change: "+Rp 3 Juta bulan ini",
+      title: "Agen Aktif",
+      value: kpiData?.active_agents || "0",
+      change: "+5 agen baru",
       trend: "up",
-      icon: Wallet,
+      icon: User,
       color: "from-teal-400 to-emerald-500",
       textColor: "text-teal-400",
       bgSoft: "bg-teal-500/20",
     },
     {
-      title: "Komisi Tersedia",
-      value: "Rp 3.000.000",
-      change: "Siap dicairkan",
+      title: "Transaksi Pending",
+      value: kpiData?.pending_transactions || "0",
+      change: "Perlu verifikasi",
       trend: "neutral",
-      icon: CreditCard,
-      color: "from-violet-400 to-purple-500",
-      textColor: "text-violet-400",
-      bgSoft: "bg-violet-500/20",
-    },
-    {
-      title: "Paket Terjual",
-      value: "5",
-      change: "Total paket yang dipesan",
-      trend: "up",
-      icon: Package,
+      icon: RefreshCcw,
       color: "from-amber-400 to-orange-500",
       textColor: "text-amber-400",
       bgSoft: "bg-amber-500/20",
+    },
+    {
+      title: "Total Pendapatan",
+      value: kpiData ? `Rp ${Number(kpiData.total_revenue).toLocaleString('id-ID')}` : "Rp 0",
+      change: "Bulan ini",
+      trend: "up",
+      icon: Wallet,
+      color: "from-violet-400 to-purple-500",
+      textColor: "text-violet-400",
+      bgSoft: "bg-violet-500/20",
     },
   ];
 
@@ -100,6 +135,10 @@ export default function AgentDashboard() {
     }
   };
 
+  if (loading) {
+    return <div className="flex items-center justify-center h-64 text-primary">Memuat dashboard...</div>;
+  }
+
   return (
     <motion.div 
       variants={containerVariants}
@@ -111,56 +150,15 @@ export default function AgentDashboard() {
       <motion.div variants={itemVariants} className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <h1 className="text-3xl font-bold text-on-surface mb-2 flex items-center gap-3">
-            Selamat datang, <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-fixed">{user?.name}</span> 
+            Admin Panel, <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-fixed">{user?.name}</span> 
             <motion.div
               animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 3 }}
             >
-              👋
+              👑
             </motion.div>
           </h1>
-          <p className="text-on-surface-variant font-medium">Ringkasan kinerja Anda sebagai mitra kebanggaan Talita Umroh.</p>
-        </div>
-        
-        <div className="flex items-center gap-3 surface-panel px-5 py-3 rounded-2xl shadow-sm">
-          <Award className="w-5 h-5 text-amber-500" />
-          <div className="flex flex-col">
-            <span className="text-xs text-on-surface-variant font-medium uppercase tracking-wider">Kode Referral</span>
-            <code className="text-primary font-mono font-bold tracking-wider">{user?.referral_code || "BELUMADA"}</code>
-          </div>
-          <div className="flex gap-2 ml-2">
-            <button 
-              onClick={() => {
-                navigator.clipboard.writeText(user?.referral_code || "");
-                alert("Kode referral berhasil disalin!");
-              }}
-              className="text-xs bg-primary-container/20 text-primary px-3 py-1.5 rounded-lg hover:bg-primary-container/40 transition font-medium border border-primary/20"
-              title="Salin Kode"
-            >
-              Salin
-            </button>
-            <button 
-              onClick={async () => {
-                const url = `${window.location.origin}/register?ref=${user?.referral_code}`;
-                const text = `Daftar Umroh bersama Talita Umroh dan dapatkan promo menarik menggunakan kode referral: ${user?.referral_code}`;
-                
-                if (navigator.share) {
-                  try {
-                    await navigator.share({ title: 'Talita Umroh Referral', text, url });
-                  } catch (e) {
-                    console.log('Share canceled');
-                  }
-                } else {
-                  // Fallback to whatsapp link if Web Share API is not supported
-                  window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + url)}`, '_blank');
-                }
-              }}
-              className="text-xs bg-surface-container-high text-on-surface px-3 py-1.5 rounded-lg hover:bg-surface-container-highest transition font-medium border border-outline-variant/30 flex items-center gap-1"
-              title="Bagikan ke Sosial Media"
-            >
-              Share
-            </button>
-          </div>
+          <p className="text-on-surface-variant font-medium">Ringkasan operasional dan statistik sistem Talita Umroh.</p>
         </div>
       </motion.div>
 
@@ -179,7 +177,7 @@ export default function AgentDashboard() {
               <div className={`p-3 rounded-2xl ${stat.bgSoft} ${stat.textColor} shadow-sm ring-1 ring-black/5`}>
                 <stat.icon className="w-6 h-6" />
               </div>
-              <div className={`flex items-center gap-1 text-sm font-semibold ${stat.trend === 'up' ? 'text-teal-400' : stat.trend === 'down' ? 'text-rose-400' : 'text-on-surface-variant'}`}>
+              <div className={`flex items-center gap-1 text-sm font-semibold ${stat.trend === 'up' ? 'text-teal-400' : stat.trend === 'down' ? 'text-rose-400' : 'text-slate-400'}`}>
                 {stat.trend === "up" && <ArrowUpRight className="w-4 h-4" />}
                 {stat.trend === "down" && <ArrowDownRight className="w-4 h-4" />}
                 {stat.trend === "neutral" && <Activity className="w-4 h-4" />}
@@ -203,17 +201,17 @@ export default function AgentDashboard() {
                 <TrendingUp className="w-5 h-5 text-primary" />
                 Tren Pertumbuhan Jamaah
               </h2>
-              <p className="text-sm text-on-surface-variant mt-1">Data statistik 6 bulan terakhir</p>
+              <p className="text-sm text-on-surface-variant mt-1">Data statistik pendaftaran jamaah 6 bulan terakhir</p>
             </div>
           </div>
           
           <div className="h-[300px] w-full">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+              <AreaChart data={chartDataToUse} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorJamaah" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#0ea5e9" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="#0ea5e9" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="#f2ca50" stopOpacity={0.3}/>
+                    <stop offset="95%" stopColor="#f2ca50" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#353535" />
@@ -229,62 +227,48 @@ export default function AgentDashboard() {
           </div>
         </motion.div>
 
-        {/* Quick Actions & Recent Activity */}
+        {/* Quick Actions */}
         <motion.div variants={itemVariants} className="space-y-6">
           <div className="dashboard-card-soft p-6">
-            <h2 className="text-xl font-bold text-on-surface mb-6">Aksi Cepat</h2>
+            <h2 className="text-xl font-bold text-on-surface mb-6">Jalan Pintas</h2>
             <div className="space-y-3">
               <Link 
-                href="/agent/packages"
+                href="/admin/transactions"
+                className="flex items-center justify-between p-4 rounded-2xl bg-surface-container-high border border-outline-variant/30 hover:border-primary/50 hover:shadow-md transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-amber-500/20 text-amber-400 rounded-lg group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                    <CheckCircle2 className="w-5 h-5" />
+                  </div>
+                  <span className="font-semibold text-on-surface">Validasi Transaksi</span>
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" />
+              </Link>
+              
+              <Link 
+                href="/admin/users"
                 className="flex items-center justify-between p-4 rounded-2xl bg-surface-container-high border border-outline-variant/30 hover:border-primary/50 hover:shadow-md transition-all group"
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-blue-500/20 text-blue-400 rounded-lg group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                    <Package className="w-5 h-5" />
+                    <Users className="w-5 h-5" />
                   </div>
-                  <span className="font-semibold text-on-surface">Jelajahi Paket</span>
+                  <span className="font-semibold text-on-surface">Kelola Pengguna</span>
                 </div>
                 <ArrowUpRight className="w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" />
               </Link>
               
               <Link 
-                href="/agent/commissions"
+                href="/admin/packages"
                 className="flex items-center justify-between p-4 rounded-2xl bg-surface-container-high border border-outline-variant/30 hover:border-primary/50 hover:shadow-md transition-all group"
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-emerald-500/20 text-emerald-400 rounded-lg group-hover:bg-emerald-500 group-hover:text-white transition-colors">
-                    <Wallet className="w-5 h-5" />
+                    <Package className="w-5 h-5" />
                   </div>
-                  <span className="font-semibold text-on-surface">Cairkan Komisi</span>
+                  <span className="font-semibold text-on-surface">Update Paket</span>
                 </div>
                 <ArrowUpRight className="w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" />
-              </Link>
-              
-              <Link 
-                href="/agent/profile"
-                className="flex items-center justify-between p-4 rounded-2xl bg-surface-container-high border border-outline-variant/30 hover:border-primary/50 hover:shadow-md transition-all group"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-violet-500/20 text-violet-400 rounded-lg group-hover:bg-violet-500 group-hover:text-white transition-colors">
-                    <User className="w-5 h-5" />
-                  </div>
-                  <span className="font-semibold text-on-surface">Lengkapi Profil</span>
-                </div>
-                <ArrowUpRight className="w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Empty State Mini */}
-          <div className="dashboard-card-soft p-6 bg-surface-container">
-            <div className="flex items-center gap-3 mb-4">
-              <ShoppingCart className="w-5 h-5 text-on-surface-variant" />
-              <h3 className="font-bold text-on-surface">Transaksi Terbaru</h3>
-            </div>
-            <div className="text-center py-6">
-              <p className="text-on-surface-variant font-medium text-sm">Belum ada transaksi</p>
-              <Link href="/agent/packages" className="text-primary font-semibold text-sm hover:underline mt-1 inline-block">
-                Mulai bagikan paket →
               </Link>
             </div>
           </div>

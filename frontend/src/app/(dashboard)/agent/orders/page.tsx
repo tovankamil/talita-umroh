@@ -45,42 +45,42 @@ export default function OrdersPage() {
       className="space-y-8"
     >
       <div>
-        <h1 className="text-3xl font-bold text-slate-800 mb-2">Riwayat Transaksi</h1>
-        <p className="text-slate-500 font-medium">Pantau status pendaftaran jamaah dan unggah bukti pembayaran di sini.</p>
+        <h1 className="text-3xl font-bold text-on-surface mb-2">Riwayat Transaksi</h1>
+        <p className="text-on-surface-variant font-medium">Pantau status pendaftaran jamaah dan unggah bukti pembayaran di sini.</p>
       </div>
 
       <div className="dashboard-card-soft overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left">
-            <thead className="bg-slate-50/50 border-b border-slate-100">
+            <thead className="bg-surface-container-lowest border-b border-outline-variant/30">
               <tr>
-                <th className="p-5 font-semibold text-slate-500 text-sm">ID Invoice</th>
-                <th className="p-5 font-semibold text-slate-500 text-sm">Nama Jamaah</th>
-                <th className="p-5 font-semibold text-slate-500 text-sm">Paket</th>
-                <th className="p-5 font-semibold text-slate-500 text-sm">Total Harga</th>
-                <th className="p-5 font-semibold text-slate-500 text-sm">Status</th>
-                <th className="p-5 font-semibold text-slate-500 text-sm">Aksi</th>
+                <th className="p-5 font-semibold text-on-surface-variant text-sm">ID Invoice</th>
+                <th className="p-5 font-semibold text-on-surface-variant text-sm">Nama Jamaah</th>
+                <th className="p-5 font-semibold text-on-surface-variant text-sm">Paket</th>
+                <th className="p-5 font-semibold text-on-surface-variant text-sm">Total Harga</th>
+                <th className="p-5 font-semibold text-on-surface-variant text-sm">Status</th>
+                <th className="p-5 font-semibold text-on-surface-variant text-sm">Aksi</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {orders.length > 0 ? orders.map((order) => (
-                <tr key={order.id} className="hover:bg-slate-50/50 transition-colors">
-                  <td className="p-5 font-mono text-sm font-semibold text-slate-700">{order.id}</td>
+                <tr key={order.id} className="hover:bg-surface-container-lowest transition-colors">
+                  <td className="p-5 font-mono text-sm font-semibold text-on-surface">{order.id}</td>
                   <td className="p-5">
-                    <p className="font-bold text-slate-800">{order.jamaah}</p>
-                    <p className="text-xs text-slate-400 mt-1">{order.date}</p>
+                    <p className="font-bold text-on-surface">{order.jamaah}</p>
+                    <p className="text-xs text-on-surface-variant mt-1">{order.date}</p>
                   </td>
-                  <td className="p-5 text-sm text-slate-600 font-medium">{order.package}</td>
-                  <td className="p-5 font-bold text-teal-600">{order.amount}</td>
+                  <td className="p-5 text-sm text-on-surface-variant font-medium">{order.package}</td>
+                  <td className="p-5 font-bold text-primary">{order.amount}</td>
                   <td className="p-5">{getStatusBadge(order.status)}</td>
                   <td className="p-5">
                     {order.status === 'pending_payment' ? (
-                      <button className="flex items-center gap-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded-lg transition shadow-sm">
+                      <button className="flex items-center gap-2 text-xs font-bold text-white bg-primary-container hover:bg-primary-fixed-dim px-4 py-2 rounded-lg transition shadow-sm">
                         <Upload className="w-4 h-4" />
                         Unggah Bukti
                       </button>
                     ) : (
-                      <button className="text-xs font-bold text-teal-600 hover:text-teal-700 px-4 py-2 bg-teal-50 hover:bg-teal-100 rounded-lg transition">
+                      <button className="text-xs font-bold text-primary hover:text-primary px-4 py-2 bg-primary-container/20 hover:bg-primary-container/40 rounded-lg transition">
                         Detail
                       </button>
                     )}
@@ -90,8 +90,8 @@ export default function OrdersPage() {
                 <tr>
                   <td colSpan={6} className="p-12 text-center">
                     <ShoppingCart className="w-12 h-12 text-slate-300 mx-auto mb-4" />
-                    <p className="text-slate-500 font-medium text-lg">Belum ada transaksi</p>
-                    <p className="text-slate-400 text-sm mt-1">Daftarkan jamaah Anda untuk melihat riwayat di sini.</p>
+                    <p className="text-on-surface-variant font-medium text-lg">Belum ada transaksi</p>
+                    <p className="text-on-surface-variant text-sm mt-1">Daftarkan jamaah Anda untuk melihat riwayat di sini.</p>
                   </td>
                 </tr>
               )}

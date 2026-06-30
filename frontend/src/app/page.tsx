@@ -37,7 +37,7 @@ export default function Home() {
 </nav>
 {/* CTA &amp; Mobile Menu Toggle */}
 <div className="flex items-center gap-4">
-<a className="hidden md:inline-flex items-center justify-center bg-primary-container text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-DEFAULT hover:bg-primary-fixed-dim transition-all duration-300 gold-glow" href="#">
+<a className="hidden md:inline-flex items-center justify-center rounded-md bg-primary-container text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-DEFAULT hover:bg-primary-fixed-dim transition-all duration-300 gold-glow" href="#">
                     Konsultasi Gratis
                 </a>
 <button className="md:hidden text-on-surface p-2 focus:outline-none">

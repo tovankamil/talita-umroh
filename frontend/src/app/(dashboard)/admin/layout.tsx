@@ -8,14 +8,15 @@ import {
   LayoutDashboard, 
   Package, 
   ShoppingCart, 
-  Wallet, 
-  User, 
+  Users, 
+  Settings,
   LogOut,
   Menu,
-  X
+  X,
+  FileText
 } from "lucide-react";
 
-export default function AgentLayout({
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -34,26 +35,27 @@ export default function AgentLayout({
   useEffect(() => {
     if (!isChecking && !isAuthenticated) {
       router.push("/login");
-    } else if (!isChecking && user?.role !== "agent") {
-      // Redirect if not agent
+    } else if (!isChecking && user?.role !== "admin") {
+      // Redirect if not admin
       router.push("/login");
     }
   }, [isAuthenticated, isChecking, user, router]);
 
   if (isChecking || !isAuthenticated) {
-    return <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center text-emerald-500">Memuat...</div>;
+    return <div className="min-h-screen bg-surface flex items-center justify-center text-primary">Memuat...</div>;
   }
 
   const menuItems = [
-    { name: "Dashboard", icon: LayoutDashboard, path: "/agent/dashboard" },
-    { name: "Paket Umroh", icon: Package, path: "/agent/packages" },
-    { name: "Transaksi", icon: ShoppingCart, path: "/agent/orders" },
-    { name: "Komisi", icon: Wallet, path: "/agent/commissions" },
-    { name: "Profil Saya", icon: User, path: "/agent/profile" },
+    { name: "Dashboard", icon: LayoutDashboard, path: "/admin/dashboard" },
+    { name: "Pengguna & Agen", icon: Users, path: "/admin/users" },
+    { name: "Manajemen Paket", icon: Package, path: "/admin/packages" },
+    { name: "Transaksi", icon: ShoppingCart, path: "/admin/transactions" },
+    { name: "CMS Konten", icon: FileText, path: "/admin/cms" },
+    { name: "Pengaturan", icon: Settings, path: "/admin/settings" },
   ];
 
   return (
-    <div className="min-h-screen app-shell-bg flex relative overflow-hidden w-full">
+    <div className="min-h-screen bg-surface flex relative overflow-hidden w-full">
       <div className="absolute inset-0 ambient-shell-layer opacity-60 pointer-events-none z-0"></div>
       <div className="absolute inset-0 ambient-shell-grid opacity-30 pointer-events-none z-0"></div>
 
@@ -64,7 +66,7 @@ export default function AgentLayout({
           <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-fixed">
             Talita Umroh
           </h2>
-          <p className="text-xs text-zinc-500 mt-1">Agent Portal</p>
+          <p className="text-xs text-on-surface-variant mt-1">Admin Portal</p>
         </div>
 
         <nav className="flex-1 p-4 space-y-2 overflow-y-auto">

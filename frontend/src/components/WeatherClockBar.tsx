@@ -11,6 +11,7 @@ interface CityData {
 }
 
 const CITIES: CityData[] = [
+  { name: 'Jakarta', tz: 'Asia/Jakarta', lat: -6.2088, lon: 106.8456 },
   { name: 'Mekkah', tz: 'Asia/Riyadh', lat: 21.4225, lon: 39.8262 },
   { name: 'Madinah', tz: 'Asia/Riyadh', lat: 24.4686, lon: 39.6142 },
   { name: 'Dubai', tz: 'Asia/Dubai', lat: 25.2048, lon: 55.2708 },

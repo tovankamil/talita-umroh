@@ -45,12 +45,12 @@ export default function PackagesPage() {
     >
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-slate-800 mb-2">Katalog Paket Umroh</h1>
-          <p className="text-slate-500 font-medium">Jelajahi paket umroh terbaru dan bagikan brosurnya ke calon jamaah.</p>
+          <h1 className="text-3xl font-bold text-on-surface mb-2">Katalog Paket Umroh</h1>
+          <p className="text-on-surface-variant font-medium">Jelajahi paket umroh terbaru dan bagikan brosurnya ke calon jamaah.</p>
         </div>
         
         <div className="relative">
-          <PackageSearch className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
+          <PackageSearch className="absolute left-4 top-3.5 w-5 h-5 text-on-surface-variant" />
           <input 
             type="text" 
             placeholder="Cari paket..." 
@@ -69,40 +69,40 @@ export default function PackagesPage() {
             {/* Header Image Fake */}
             <div className={`h-40 ${pkg.image} p-6 relative overflow-hidden`}>
               <div className="absolute inset-0 bg-black/10"></div>
-              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur text-teal-700 text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm">
+              <div className="absolute top-4 right-4 bg-surface-container/90 backdrop-blur text-primary text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm">
                 Komisi {pkg.commission}
               </div>
             </div>
             
             <div className="p-6 flex-1 flex flex-col">
-              <h3 className="text-xl font-bold text-slate-800 mb-4 leading-tight group-hover:text-teal-600 transition-colors">
+              <h3 className="text-xl font-bold text-on-surface mb-4 leading-tight group-hover:text-primary transition-colors">
                 {pkg.title}
               </h3>
               
               <div className="space-y-3 mb-6 flex-1">
-                <div className="flex items-center gap-3 text-sm text-slate-600 bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                  <Calendar className="w-4 h-4 text-slate-400" />
+                <div className="flex items-center gap-3 text-sm text-on-surface-variant bg-surface-container-high p-2.5 rounded-lg border border-outline-variant/30">
+                  <Calendar className="w-4 h-4 text-on-surface-variant" />
                   <span className="font-medium">{pkg.date}</span>
                 </div>
-                <div className="flex items-center gap-3 text-sm text-slate-600 bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                  <Users className="w-4 h-4 text-slate-400" />
+                <div className="flex items-center gap-3 text-sm text-on-surface-variant bg-surface-container-high p-2.5 rounded-lg border border-outline-variant/30">
+                  <Users className="w-4 h-4 text-on-surface-variant" />
                   <span className="font-medium">Sisa {pkg.remaining} dari {pkg.quota} seat</span>
                 </div>
               </div>
 
               <div className="flex items-end justify-between mb-6">
                 <div>
-                  <p className="text-xs text-slate-400 font-medium uppercase tracking-wider mb-1">Harga Mulai</p>
-                  <p className="text-xl font-bold text-teal-600">{pkg.price}</p>
+                  <p className="text-xs text-on-surface-variant font-medium uppercase tracking-wider mb-1">Harga Mulai</p>
+                  <p className="text-xl font-bold text-primary">{pkg.price}</p>
                 </div>
               </div>
 
               <div className="flex gap-3 mt-auto">
-                <button className="flex-1 bg-teal-600 text-white font-medium py-3 rounded-xl hover:bg-teal-700 transition shadow-lg shadow-teal-500/20 flex items-center justify-center gap-2">
+                <button className="flex-1 bg-primary-container text-white font-medium py-3 rounded-xl hover:bg-primary-fixed-dim transition shadow-lg shadow-primary/5 flex items-center justify-center gap-2">
                   Daftarkan Jamaah
                   <ArrowRight className="w-4 h-4" />
                 </button>
-                <button className="p-3 bg-slate-100 text-slate-600 rounded-xl hover:bg-slate-200 transition" title="Bagikan Brosur">
+                <button className="p-3 bg-surface-container-highest text-on-surface-variant rounded-xl hover:bg-surface-container-highest transition" title="Bagikan Brosur">
                   <Share2 className="w-5 h-5" />
                 </button>
               </div>

@@ -66,11 +66,11 @@ export default function HeroSlider() {
         </h2>
 
         {/* Search / Filter Box */}
-        <div className="glass-panel w-full max-w-3xl mt-8 p-4 md:p-6 flex flex-col md:flex-row items-center gap-4 rounded-[32px] md:rounded-full border border-white/20">
-          <div className="w-full md:w-1/3 flex flex-col items-start gap-2">
+        <div className="glass-panel w-full max-w-6xl mt-8 p-6 md:py-8 md:px-12 lg:px-16 flex flex-col md:flex-row items-center gap-4 md:gap-8 rounded-[32px] md:rounded-full border border-white/20">
+          <div className="w-full md:flex-1 flex flex-col items-start gap-2">
             <label className="font-label-sm text-label-sm text-white/80 uppercase tracking-wider" htmlFor="month">Bulan Keberangkatan</label>
             <div className="relative w-full">
-              <select className="w-full interactive-control font-body-md text-body-md px-4 py-3 rounded-md appearance-none bg-surface/50 text-white cursor-pointer" id="month">
+              <select className="w-full h-[52px] interactive-control font-body-md text-body-md px-4 rounded-md appearance-none bg-surface/50 text-white cursor-pointer" id="month">
                 <option value="">Pilih Bulan</option>
                 <option value="agustus">Agustus 2026</option>
                 <option value="september">September 2026</option>
@@ -79,10 +79,10 @@ export default function HeroSlider() {
               <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-primary pointer-events-none w-5 h-5" />
             </div>
           </div>
-          <div className="w-full md:w-1/3 flex flex-col items-start gap-2">
+          <div className="w-full md:flex-1 flex flex-col items-start gap-2">
             <label className="font-label-sm text-label-sm text-white/80 uppercase tracking-wider" htmlFor="type">Jenis Paket</label>
             <div className="relative w-full">
-              <select className="w-full interactive-control font-body-md text-body-md px-4 py-3 rounded-md appearance-none bg-surface/50 text-white cursor-pointer" id="type">
+              <select className="w-full h-[52px] interactive-control font-body-md text-body-md px-4 rounded-md appearance-none bg-surface/50 text-white cursor-pointer" id="type">
                 <option value="">Semua Paket</option>
                 <option value="vip">Paket VIP</option>
                 <option value="reguler">Paket Reguler</option>
@@ -90,9 +90,10 @@ export default function HeroSlider() {
               <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-primary pointer-events-none w-5 h-5" />
             </div>
           </div>
-          <div className="w-full md:w-1/3 mt-4 md:mt-0">
-            <button className="w-full bg-primary-container hover:bg-primary-fixed-dim text-on-primary font-label-md text-label-md py-3 px-6 rounded-md flex items-center justify-center gap-2 transition-all duration-300 gold-glow">
-              <Search className="w-5 h-5" /> Temukan Paket Terbaik Anda
+          <div className="w-full md:w-auto mt-4 md:mt-0 flex flex-col items-start gap-2">
+            <label className="hidden md:block font-label-sm text-label-sm opacity-0 uppercase tracking-wider" aria-hidden="true">Action</label>
+            <button className="w-full h-[54px] bg-primary-container hover:bg-primary-fixed-dim hover:cursor-pointer text-on-primary font-label-md font-bold text-label-md px-8 rounded-md flex items-center justify-center gap-2 transition-all duration-300 gold-glow whitespace-nowrap">
+              <Search className="w-5 h-5" /> Temukan Paket
             </button>
           </div>
         </div>
